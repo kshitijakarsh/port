@@ -11,14 +11,13 @@ const navLinks = [
 ];
 
 interface NavbarProps {
-  show: boolean; // This allows the Navbar component to receive the `show` prop
+  show: boolean;
 }
 
 export default function Navbar({ show }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  // Apply scroll behavior only for the index page
   useEffect(() => {
     if (location.pathname === "/") {
       const handleScroll = () => {
@@ -30,7 +29,6 @@ export default function Navbar({ show }: NavbarProps) {
     }
   }, [location.pathname]);
 
-  // Determine if the navbar should be visible based on the page and scroll position
   const isVisible = location.pathname !== "/" || scrolled || show;
 
   return (
@@ -41,7 +39,7 @@ export default function Navbar({ show }: NavbarProps) {
     >
       <div className="max-w-[700px] mx-auto px-4 flex items-center justify-between">
         <Link to="/" className="text-lg font-medium text-orange-400">
-          Kshitij.
+          kshitij.
         </Link>
 
         <div className="flex items-center space-x-6">

@@ -38,13 +38,12 @@ const featuredProjects = [
 const Index = () => {
   const [showNavbar, setShowNavbar] = useState(false);
 
-  // Handle scroll event to show/hide navbar
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
-        setShowNavbar(true); // Show navbar after scrolling 50px
+        setShowNavbar(true);
       } else {
-        setShowNavbar(false); // Hide navbar when at the top
+        setShowNavbar(false);
       }
     };
 

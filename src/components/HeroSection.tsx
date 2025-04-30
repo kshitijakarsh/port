@@ -6,13 +6,12 @@ export default function HeroSection() {
     <section className="pt-40 pb-12 relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4">
         {" "}
-        {/* Adjusted max-width here */}
         <div className="space-y-6 text-left">
           <h1 className="text-3xl md:text-4xl font-semibold tracking-tight leading-snug">
             <span>
               Hi, I'm{" "}
               <span className="text-5xl text-orange-400 relative inline-block">
-                Kshitij Akarsh.
+                kshitij.
                 <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 via-pink-500 to-orange-400 transform translate-y-2 rounded-full animate-shimmer"></span>
               </span>
             </span>

@@ -15,7 +15,6 @@ import Blog from "./pages/Blog";
 const queryClient = new QueryClient();
 
 const App = () => {
-  // Initialize theme based on localStorage or system preference
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;

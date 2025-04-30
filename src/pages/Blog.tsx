@@ -12,7 +12,6 @@ import {
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-// Empty array for blog posts
 const blogPosts = [
 //   {
 //     id: "blog1",

@@ -5,7 +5,6 @@ export default function ThemeToggle() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    // Check initial theme preference
     const isDark = document.documentElement.classList.contains("dark");
     setIsDarkMode(isDark);
   }, []);
@@ -23,7 +22,6 @@ export default function ThemeToggle() {
     }
   };
 
-  // Initialize theme from localStorage on component mount
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;

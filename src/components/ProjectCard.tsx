@@ -26,7 +26,6 @@ export default function ProjectCard({
   const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState<boolean>(false);
 
-  // Handle mouse movement for gradient effect
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>): void => {
     if (!cardRef.current) return;
     
@@ -47,12 +46,9 @@ export default function ProjectCard({
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-      {/* Animated border container that wraps the entire card */}
       <div className={`absolute inset-0 rounded-lg ${isHovering ? 'animate-border-beam' : 'border border-gray-200 dark:border-gray-800'} z-0`} />
       
-      {/* Card content container with background */}
       <div className="relative flex flex-col h-full z-10 m-0.5 rounded-lg bg-white dark:bg-gray-900 overflow-hidden">
-        {/* Dynamic gradient overlay */}
         {isHovering && (
           <div 
             className="absolute inset-0 opacity-20 pointer-events-none z-10 transition-opacity duration-300"
@@ -63,7 +59,6 @@ export default function ProjectCard({
           />
         )}
         
-        {/* Image container with fixed aspect ratio */}
         <div className="w-full relative pt-[56.25%]">
           <img
             src={imageSrc}
