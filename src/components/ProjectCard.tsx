@@ -89,13 +89,6 @@ export default function ProjectCard({
           </div>
 
           <div className="flex items-center justify-between">
-            <a
-              href={`/projects/${id}`}
-              className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300 flex items-center gap-1 group"
-            >
-              View details
-              <ArrowRight size={16} className="transform transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
 
             <div className="flex items-center gap-4">
               {githubUrl && (
