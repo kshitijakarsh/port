@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const blogPosts = [
   {
@@ -23,6 +24,7 @@ const blogPosts = [
 
 const Blog = () => {
   const [showNavbar, setShowNavbar] = useState(false);
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,7 +65,9 @@ const Blog = () => {
                         {post.readTime}
                       </div>
 
-                      <h4 className="text-lg font-semibold">{post.title}</h4>
+                      <h4 className="text-lg font-semibold" onClick={()=>{
+                        navigate(`${post.id}`)
+                      }}>{post.title}</h4>
 
                       <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
                         {post.excerpt}
