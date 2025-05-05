@@ -88,7 +88,7 @@ const Index = () => {
             </div>
           </section>
 
-          {/* <BlogSection /> */}
+          <BlogSection />
 
           <section className="py-20">
             <AboutSection />
