@@ -3,10 +3,10 @@ import { ChevronLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const BlogPost = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleGoBack = () => {
-    navigate("/blogs")
+    navigate("/blogs");
   };
 
   const post = {
@@ -333,26 +333,32 @@ export default Profile;`,
             key={index}
             className={`font-bold mb-6 ${
               section.level === 2 ? "text-2xl" : "text-xl"
-            }`}
+            } text-gray-900 dark:text-white`}
           >
             {section.content}
           </HeadingTag>
         );
       case "paragraph":
         return (
-          <p key={index} className="text-gray-700 my-4">
+          <p key={index} className="text-gray-700 dark:text-gray-300 my-4">
             {section.content}
           </p>
         );
       case "code":
         // Split code into lines for line numbering
-        const lines = section.content.split('\n');
+        const lines = section.content.split("\n");
         return (
-          <div key={index} className="bg-gray-50 p-4 rounded-md overflow-x-auto mb-6">
-            <pre className="text-gray-700 font-mono text-sm">
+          <div
+            key={index}
+            className="bg-gray-50 dark:bg-gray-800 p-4 rounded-md overflow-x-auto mb-6"
+          >
+            <pre className="text-gray-700 dark:text-gray-300 font-mono text-sm">
               {lines.map((line, lineIndex) => (
                 <React.Fragment key={lineIndex}>
-                  <span className="text-gray-500">{lineIndex + 1}</span> {line}
+                  <span className="text-gray-500 dark:text-gray-400">
+                    {lineIndex + 1}
+                  </span>{" "}
+                  {line}
                   {lineIndex < lines.length - 1 && <br />}
                 </React.Fragment>
               ))}
@@ -362,18 +368,21 @@ export default Profile;`,
       case "inlineCode":
         // Handle paragraphs with inline code formatting
         const parts = section.content.split(/`([^`]+)`/);
-        const content = parts.map((part, i) => 
+        const content = parts.map((part, i) =>
           i % 2 === 0 ? (
             <span key={i}>{part}</span>
           ) : (
-            <span key={i} className="font-mono bg-gray-100 px-1 py-0.5 rounded text-sm">
+            <span
+              key={i}
+              className="font-mono bg-gray-100 dark:bg-gray-700 px-1 py-0.5 rounded text-sm text-gray-900 dark:text-white"
+            >
               {part}
             </span>
           )
         );
-        
+
         return (
-          <p key={index} className="text-gray-700 my-4">
+          <p key={index} className="text-gray-700 dark:text-gray-300 my-4">
             {content}
           </p>
         );
@@ -384,34 +393,37 @@ export default Profile;`,
 
   return (
     <div className="max-w-4xl mx-auto py-8 px-4 font-sans">
-      <div 
+      <div
         onClick={handleGoBack}
-        className="flex items-center gap-1 text-gray-500 mb-8 hover:text-gray-700 transition duration-150 cursor-pointer"
+        className="flex items-center gap-1 text-gray-500 dark:text-gray-300 mb-8 hover:text-gray-700 dark:hover:text-gray-100 transition duration-150 cursor-pointer"
       >
         <ChevronLeft size={16} />
         <span className="text-sm">Back</span>
       </div>
-      
+
       <article>
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">{post.title}</h1>
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          {post.title}
+        </h1>
         <div className="mb-8">
-          <div className="flex items-center gap-2 text-sm text-gray-500">
+          <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-300">
             <span>{post.date}</span>
             <span>•</span>
             <span>{post.readTime}</span>
           </div>
           <div className="flex gap-2 mt-3">
             {post.tags.map((tag, index) => (
-              <span key={index} className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
+              <span
+                key={index}
+                className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2 py-1 rounded-full"
+              >
                 {tag}
               </span>
             ))}
           </div>
         </div>
-        
-        <div className="mt-8">
-          {post.sections.map(renderSection)}
-        </div>
+
+        <div className="mt-8">{post.sections.map(renderSection)}</div>
       </article>
     </div>
   );
