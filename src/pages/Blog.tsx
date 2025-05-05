@@ -83,7 +83,7 @@ const Blog = () => {
                       </div>
 
                       <Link
-                        to={`/blog/${post.id}`}
+                        to={`/blogs/${post.id}`}
                         className="flex items-center text-sm font-medium text-orange-400 dark:text-orange-600 hover:text-orange-600 dark:hover:text-orange-300"
                       >
                         Read Full Article
