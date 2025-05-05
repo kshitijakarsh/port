@@ -1,27 +1,24 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
-  BookOpen,
   Calendar,
   Clock,
   ChevronRight,
   PenTool,
-  FileText,
-  PlusCircle,
 } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const blogPosts = [
-//   {
-//     id: "blog1",
-//     title: "Getting Started with React Hooks",
-//     excerpt:
-//       "Learn how to use useState, useEffect, and custom hooks to build more efficient React applications.",
-//     date: "April 22, 2025",
-//     readTime: "5 min read",
-//     tags: ["React", "JavaScript", "Frontend"],
-//   },
+  {
+    id: "1",
+    title: "Getting Started with Next.js",
+    excerpt: "A beginner’s guide to understanding the Next.js framework.",
+    date: "May 5, 2025",
+    readTime: "6 min read",
+    tags: ["Next.js", "React", "Web Development"],
+  },
+  // More blog posts can be added here
 ];
 
 const Blog = () => {
@@ -44,10 +41,7 @@ const Blog = () => {
           <section className="py-12 dark:border-gray-800">
             <div className="mb-8">
               <div className="flex items-center gap-2 mb-4">
-                <PenTool
-                  size={20}
-                  className="text-gray-700 dark:text-gray-300"
-                />
+                <PenTool size={20} className="text-gray-700 dark:text-gray-300" />
                 <h2 className="text-2xl font-bold">Blog Posts</h2>
               </div>
               <p className="text-gray-600 dark:text-gray-300">
@@ -58,21 +52,14 @@ const Blog = () => {
             <div className="bg-white dark:bg-transparent dark:bg-opacity-30 dark:bg-gradient-to-r dark:from-black dark:to-gray-900 dark:backdrop-blur-md rounded-lg p-6 border border-gray-200 dark:border-gray-700">
               {blogPosts.length > 0 ? (
                 <div className="space-y-8">
-                  {blogPosts.map((post, index) => (
+                  {blogPosts.map((post) => (
                     <div key={post.id} className="relative pl-6">
                       <div className="absolute -left-1 top-1.5 h-3 w-3 rounded-full bg-gray-700 dark:bg-gray-500"></div>
-                      {index !== blogPosts.length - 1 && (
-                        <div
-                          className="absolute -left-0 top-3 bottom-0 w-px bg-gray-300 dark:bg-gray-700"
-                          style={{ height: "calc(100% + 32px)" }}
-                        ></div>
-                      )}
-
                       <div className="mb-1 text-sm text-gray-500 dark:text-gray-400 flex items-center gap-1">
                         <Calendar size={14} />
                         {post.date}
                         <span className="mx-2">•</span>
-                        <Clock size={14} className="mr-1" />
+                        <Clock size={14} />
                         {post.readTime}
                       </div>
 
@@ -107,7 +94,6 @@ const Blog = () => {
                 </div>
               ) : (
                 <div className="py-16 text-center">
-                  <div className="flex justify-center mb-4"></div>
                   <h3 className="text-xl mb-2 text-gray-800 dark:text-gray-200">
                     No Blog Posts Yet
                   </h3>
