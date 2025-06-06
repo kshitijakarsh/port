@@ -61,7 +61,7 @@ const About = () => {
               <div className="w-full md:w-1/3">
                 <div className="relative rounded-lg overflow-hidden aspect-square mb-6">
                   <img
-                    src="./pfp.jpeg"
+                    src="./pfp.svg"
                     alt="Profile"
                     className="w-full h-full object-cover"
                   />

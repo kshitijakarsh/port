@@ -19,7 +19,6 @@ export default function Navbar({ show }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Handle scroll effect
   useEffect(() => {
     if (location.pathname === "/") {
       const handleScroll = () => {
@@ -31,7 +30,6 @@ export default function Navbar({ show }: NavbarProps) {
     }
   }, [location.pathname]);
 
-  // Close mobile menu when changing routes
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
