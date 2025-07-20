@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import blog1 from "../../../../blogs/blog1.json";
 import CodeBlock from "../../../components/CodeBlock";
-import Sidebar from "@/components/Sidebar";
 
 const blogs = [blog1];
 
@@ -11,8 +10,10 @@ interface PageProps {
   };
 }
 
-export async function generateStaticParams(): Promise<{ id: string }[]> {
-  return Promise.resolve(blogs.map((blog) => ({ id: blog.id.toString() })));
+export function generateStaticParams() {
+  return blogs.map((blog) => ({
+    id: blog.id.toString(),
+  }));
 }
 
 export default function BlogDetail({ params }: PageProps) {
