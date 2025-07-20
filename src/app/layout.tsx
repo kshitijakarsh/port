@@ -15,6 +15,14 @@ const instrumentSerif = Instrument_Serif({
   weight: ["400"],
 });
 
+export const metadata: Metadata = {
+  title: "Kshitij Akarsh",
+  description: "portfolio web",
+  icons: {
+    icon: "/favicon.ico", 
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

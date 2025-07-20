@@ -1,5 +1,3 @@
-import Sidebar from "@/components/Sidebar";
-
 export default function About() {
   return (
     <div className="flex justify-center px-4">
@@ -36,7 +34,7 @@ export default function About() {
           <div>
             <p className="font-semibold mb-2">Resume</p>
             <a
-              href="/resume.pdf"
+              href="./Kshitij_Akarsh.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 hover:underline"

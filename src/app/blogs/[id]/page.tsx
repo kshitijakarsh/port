@@ -1,23 +1,26 @@
 import { notFound } from "next/navigation";
-import blog1 from "../../../../blogs/blog1.json";
 import CodeBlock from "../../../components/CodeBlock";
+import blog1 from "../../../../blogs/blog1.json";
 
-const blogs = [blog1];
-
-interface PageProps {
-  params: {
-    id: string;
-  };
+async function getBlogById(id: string) {
+  const blogs = [blog1];
+  return blogs.find((b) => b.id.toString() === id) || null;
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const blogs = [blog1];
   return blogs.map((blog) => ({
     id: blog.id.toString(),
   }));
 }
 
-export default function BlogDetail({ params }: PageProps) {
-  const blog = blogs.find((b) => b.id.toString() === params.id);
+export default async function BlogDetail({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const blog = await getBlogById(id);
 
   if (!blog) return notFound();
 
