@@ -11,8 +11,8 @@ interface PageProps {
   };
 }
 
-export async function generateStaticParams() {
-  return blogs.map((blog) => ({ id: blog.id.toString() }));
+export async function generateStaticParams(): Promise<{ id: string }[]> {
+  return Promise.resolve(blogs.map((blog) => ({ id: blog.id.toString() })));
 }
 
 export default function BlogDetail({ params }: PageProps) {
