@@ -5,11 +5,17 @@ import Sidebar from "@/components/Sidebar";
 
 const blogs = [blog1];
 
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+
 export async function generateStaticParams() {
   return blogs.map((blog) => ({ id: blog.id.toString() }));
 }
 
-export default function BlogDetail({ params }: { params: { id: string } }) {
+export default function BlogDetail({ params }: PageProps) {
   const blog = blogs.find((b) => b.id.toString() === params.id);
 
   if (!blog) return notFound();
