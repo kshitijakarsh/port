@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+:root {
+  --background: #efefef;
+  --foreground: #171717;
+  --thin-border: 0.5px solid #dad8d8;
+  --outer-radius: 21px;
+  --inner-radius: 10px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), sans-serif;
+}
+
+.serif {
+  font-family: var(--font-instrument), serif;
+}

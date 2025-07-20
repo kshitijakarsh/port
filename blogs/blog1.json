@@ -1,0 +1,157 @@
+{
+  "id": "1",
+  "title": "NextJs Starter",
+  "author": "Kshitij Akarsh",
+  "date": "May 5, 2025",
+  "readTime": "8 min read",
+  "tags": ["Next.js", "React", "Web Development"],
+  "sections": [
+    {
+      "type": "paragraph",
+      "content": "After working with React for a while, I decided to explore what the hype around Next.js was all about. I kept hearing terms like \"server-side rendering,\" \"file-based routing,\" and \"zero-config,\" and figured it was time to try it out for myself."
+    },
+    {
+      "type": "paragraph",
+      "content": "At first glance, Next.js felt familiar — it's built on top of React after all — but the developer experience is quite different. Some of its features made immediate sense, while others took a bit of digging (and breaking things) to fully understand."
+    },
+    {
+      "type": "paragraph",
+      "content": "This post is a beginner's take on getting started with Next.js — getting started with making a small project like a login and signup page, along with how redirection works in Next.js and understanding the file structure."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Installation :"
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "content": "npx create-next-app@latest appname"
+    },
+    {
+      "type": "paragraph",
+      "content": "after running this command, a project is setup :"
+    },
+    {
+      "type": "code",
+      "language": "bash",
+      "content": "$ cd appname\n$ ls\neslint.config.mjs  node_modules  postcss.config.mjs  src\nnext-env.d.ts      package-lock.json  public  tsconfig.json\nnext.config.ts      package.json       README.md"
+    },
+    {
+      "type": "paragraph",
+      "content": "we write our code, design the pages and take care of the routing in the \"src\" folder."
+    },
+    {
+      "type": "code",
+      "language": "plaintext",
+      "content": "src/\n└── app/\n    └── page.tsx\n    └── layout.tsx\n    └── global.css"
+    },
+    {
+      "type": "inlineCode",
+      "content": "page.tsx : It's always the contents inside the page.tsx, that gets rendered. Here since it is inside the app folder that means it will get rendered on route (\"/\")."
+    },
+    {
+      "type": "inlineCode",
+      "content": "layout.tsx : This works exactly the same way as Layout.tsx / Layout.jsx does in React, to wrap all the contents and give them one consistent styling."
+    },
+    {
+      "type": "inlineCode",
+      "content": "global.css : This works as Index.css to provide a consistent styling to all the pages."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Creating a New Component for the /login Route"
+    },
+    {
+      "type": "paragraph",
+      "content": "File Structure for the new page will look like this:"
+    },
+    {
+      "type": "code",
+      "language": "plaintext",
+      "content": "src/\n└── app/\n    └── login\n        └── page.tsx\n    └── page.tsx\n    └── layout.tsx\n    └── global.css"
+    },
+    {
+      "type": "paragraph",
+      "content": "Next.js uses the App Router, which makes routing super simple. The files and folders inside the app/ directory define your routes automatically."
+    },
+    {
+      "type": "paragraph",
+      "content": "Inside the page.tsx which is present inside the login folder we will write the contents of our login page:"
+    },
+    {
+      "type": "code",
+      "language": "typescript",
+      "content": "import { useState } from 'react';\n\nconst Login = () => {\n  const [email, setEmail] = useState('');\n  const [password, setPassword] = useState('');\n\n  const handleSubmit = (e: React.FormEvent) => {\n    e.preventDefault();\n    // Assuming login is successful, redirect to home\n  };\n\n  return (\n    <div>\n      <h2>Login</h2>\n      <form onSubmit={handleSubmit}>\n        <div>\n          <label htmlFor=\"email\">Email</label>\n          <input\n            type=\"email\"\n            id=\"email\"\n            name=\"email\"\n            value={email}\n            onChange={(e) => setEmail(e.target.value)}\n            required\n          />\n        </div>\n        <div>\n          <label htmlFor=\"password\">Password</label>\n          <input\n            type=\"password\"\n            id=\"password\"\n            name=\"password\"\n            value={password}\n            onChange={(e) => setPassword(e.target.value)}\n            required\n          />\n        </div>\n        <button type=\"submit\">Log in</button>\n      </form>\n    </div>\n  );\n};\n\nexport default Login;"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Creating a Signup Page"
+    },
+    {
+      "type": "paragraph",
+      "content": "Now that we've got a basic login page ready, let's create the signup page. The way to do it is pretty much the same, create new folder named signup and a file page.tsx inside it."
+    },
+    {
+      "type": "code",
+      "language": "plaintext",
+      "content": "src/\n└── app/\n    └── signup/\n        └── page.tsx"
+    },
+    {
+      "type": "paragraph",
+      "content": "Now since the page.tsx is ready let's write the code inside it."
+    },
+    {
+      "type": "code",
+      "language": "typescript",
+      "content": "import { useState } from 'react';\n\nconst Signup = () => {\n  const [email, setEmail] = useState('');\n  const [password, setPassword] = useState('');\n\n  const handleSubmit = (e: React.FormEvent) => {\n    e.preventDefault();\n  };\n\n  return (\n    <div>\n      <h2>Signup</h2>\n      <form onSubmit={handleSubmit}>\n        <div>\n          <label htmlFor=\"email\">Email</label>\n          <input\n            type=\"email\"\n            id=\"email\"\n            name=\"email\"\n            value={email}\n            onChange={(e) => setEmail(e.target.value)}\n            required\n          />\n        </div>\n        <div>\n          <label htmlFor=\"password\">Password</label>\n          <input\n            type=\"password\"\n            id=\"password\"\n            name=\"password\"\n            value={password}\n            onChange={(e) => setPassword(e.target.value)}\n            required\n          />\n        </div>\n        <button type=\"submit\">Sign up</button>\n      </form>\n    </div>\n  );\n};\n\nexport default Signup;"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Dynamic Routing in Next.js"
+    },
+    {
+      "type": "paragraph",
+      "content": "Now let's talk about dynamic routing. Next.js makes dynamic routing super easy with its file-based routing system."
+    },
+    {
+      "type": "paragraph",
+      "content": "To demonstrate this, we'll create a simple dynamic route to display a user's profile page."
+    },
+    {
+      "type": "code",
+      "language": "plaintext",
+      "content": "src/\n └── app/\n      └── profile/\n           └── [id]/\n                └── page.tsx"
+    },
+    {
+      "type": "paragraph",
+      "content": "Notice how we create the [id] folder, it's wrapped inside bracket [], that is how routes are made dynamic. So when you visit /profile/123, it will display contents related to that page."
+    },
+    {
+      "type": "code",
+      "language": "typescript",
+      "content": "import { useRouter } from 'next/router';\n\nconst Profile = () => {\n  const router = useRouter();\n  const { id } = router.query;\n\n  return (\n    <div>\n      <h2>User Profile</h2>\n      <p>Displaying profile for user: {id}</p>\n    </div>\n  );\n};\n\nexport default Profile;"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Bringing it All Together"
+    },
+    {
+      "type": "paragraph",
+      "content": "Now we have two main features: login and signup pages, along with dynamic routing for a user profile page. Here's a quick summary of the file structure:"
+    },
+    {
+      "type": "code",
+      "language": "plaintext",
+      "content": "src/\n └── app/\n      └── login/\n           └── page.tsx\n      └── signup/\n           └── page.tsx\n      └── profile/\n           └── [id]/\n                └── page.tsx\n      └── page.tsx\n      └── layout.tsx\n      └── global.css"
+    },
+    {
+      "type": "paragraph",
+      "content": "This structure allows us to handle routing and display different pages based on dynamic parameters with ease. With the power of Next.js, you can build dynamic, scalable web apps with just a few simple files !"
+    }
+  ]
+}
