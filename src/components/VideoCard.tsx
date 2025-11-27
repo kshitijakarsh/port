@@ -1,13 +1,9 @@
 "use client";
 
 import React from "react";
+import { Design } from "@/types";
 
-interface VideoCardProps {
-  videoSrc: string;
-  title: string;
-  description: string;
-  toolsUsed: string[];
-}
+type VideoCardProps = Omit<Design, "id">;
 
 export default function VideoCard({
   videoSrc,
@@ -17,8 +13,9 @@ export default function VideoCard({
 }: VideoCardProps) {
   return (
     <div
-      className="max-w-xs w-full h-auto p-3 space-y-3 bg-[#F8F8F8] font-marvel"
+      className="max-w-xs w-full h-auto p-3 space-y-3 font-marvel"
       style={{
+        backgroundColor: "var(--bg-card)",
         border: "var(--thin-border)",
         borderRadius: "var(--outer-radius)",
       }}
@@ -52,8 +49,10 @@ export default function VideoCard({
         {toolsUsed.map((tool) => (
           <span
             key={tool}
-            className="px-2.5 py-0.5 text-xs font-light text-foreground bg-white"
+            className="px-2.5 py-0.5 text-xs font-light"
             style={{
+              color: "var(--text-primary)",
+              backgroundColor: "var(--bg-button)",
               borderRadius: "var(--outer-radius)",
               border: "var(--thin-border)",
             }}

@@ -8,7 +8,11 @@ export default function About() {
         Tech enthusiast building innovative tools with AI and code. Passionate
         about startups, problem-solving, and creating value through software.{" "}
         <span>
-          <a href="/about" className="text-blue-500 hover:underline">
+          <a
+            href="/about"
+            className="hover:underline"
+            style={{ color: "var(--text-link)" }}
+          >
             more
           </a>
         </span>

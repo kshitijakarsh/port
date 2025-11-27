@@ -7,7 +7,7 @@ export default function About() {
         </p>
 
         <p className="text-sm py-4">
-          I'm a passionate frontend developer with expertise in creating
+          I&apos;m a passionate frontend developer with expertise in creating
           responsive, user-friendly web applications. With experience in
           full-stack development, I have worked on projects like Dhairya, an
           all-in-one gym management service, and Elevance, a platform that helps
@@ -16,7 +16,7 @@ export default function About() {
 
         <p className="text-sm py-4">
           I specialize in modern JavaScript frameworks like React and Node.js,
-          and I'm adept at building applications that are both visually
+          and I&apos;m adept at building applications that are both visually
           appealing and performant. My approach to development emphasizes clean,
           maintainable code, scalability, and optimizing performance for
           seamless user experiences.
@@ -25,9 +25,9 @@ export default function About() {
         <p className="text-sm py-4">
           In addition to development, I enjoy contributing to open-source
           projects, mentoring junior developers, and continuously learning new
-          technologies. Whether it's solving complex UI challenges or improving
-          backend functionality, I’m always striving to push the boundaries of
-          what’s possible in web development.
+          technologies. Whether it&apos;s solving complex UI challenges or improving
+          backend functionality, I&apos;m always striving to push the boundaries of
+          what&apos;s possible in web development.
         </p>
 
         <div className="mt-10 space-y-6 text-sm text-gray-800">
@@ -37,7 +37,8 @@ export default function About() {
               href="./Kshitij_Akarsh.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500 hover:underline"
+              className="hover:underline"
+              style={{ color: "var(--text-link)" }}
             >
               View / Download
             </a>
@@ -62,26 +63,30 @@ export default function About() {
               <a
                 href="https://github.com/kshitijakarsh"
                 target="_blank"
-                className="text-blue-500 hover:underline"
+                className="hover:underline"
+                style={{ color: "var(--text-link)" }}
               >
                 GitHub
               </a>
               <a
                 href="https://linkedin.com/in/kshitijakarsh"
                 target="_blank"
-                className="text-blue-500 hover:underline"
+                className="hover:underline"
+                style={{ color: "var(--text-link)" }}
               >
                 LinkedIn
               </a>
               <a
                 href="mailto:kshitijakarsh@gmail.com"
-                className="text-blue-500 hover:underline"
+                className="hover:underline"
+                style={{ color: "var(--text-link)" }}
               >
                 Email
               </a>
               <a
                 href="https://x.com/kshitijakarsh"
-                className="text-blue-500 hover:underline"
+                className="hover:underline"
+                style={{ color: "var(--text-link)" }}
               >
                 X
               </a>

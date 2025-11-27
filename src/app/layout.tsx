@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Instrument_Serif, Manrope } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -31,12 +32,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${manrope.variable} ${instrumentSerif.variable}`}>
-        <div className="flex justify-center">
-          <div className="flex w-full max-w-3xl">
-            <Sidebar />
-            <main className="flex-1 p-4">{children}</main>
+        <ErrorBoundary>
+          <div className="flex justify-center">
+            <div className="flex w-full max-w-3xl">
+              <Sidebar />
+              <main className="flex-1 p-4 pb-22" role="main">
+                {children}
+              </main>
+            </div>
           </div>
-        </div>
+        </ErrorBoundary>
       </body>
     </html>
   );

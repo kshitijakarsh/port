@@ -1,11 +1,24 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { Home, Info, BookOpen, PencilRuler } from "lucide-react";
+import {
+  ICON_SIZE,
+  ICON_STROKE_WIDTH,
+  SIDEBAR_MOBILE_OFFSET,
+} from "@/constants";
+import { routes } from "@/data/routes";
 
-const icons = [Home, Info, BookOpen, PencilRuler];
-const routes = ["/", "/about", "/projects", "/designs"];
-
+/**
+ * Sidebar Navigation Component
+ *
+ * Provides responsive navigation for both desktop and mobile viewports.
+ * Features an animated indicator that highlights the current active route.
+ *
+ * Desktop: Vertical sidebar with icons, sticky positioned
+ * Mobile: Horizontal bottom navigation bar with icons
+ *
+ * @returns Navigation sidebar with route indicators
+ */
 export default function Sidebar() {
   const pathname = usePathname();
   const router = useRouter();
@@ -13,7 +26,7 @@ export default function Sidebar() {
   const [indicatorPos, setIndicatorPos] = useState<number>(0);
 
   const activeIndex = routes.findIndex((route) =>
-    route === "/" ? pathname === "/" : pathname.startsWith(route)
+    route.path === "/" ? pathname === "/" : pathname.startsWith(route.path)
   );
 
   useEffect(() => {
@@ -23,80 +36,109 @@ export default function Sidebar() {
       const parentBox = el?.parentElement?.getBoundingClientRect();
       if (box && parentBox) {
         const left = box.left - parentBox.left;
-        setIndicatorPos(left + 15);
+        setIndicatorPos(left + SIDEBAR_MOBILE_OFFSET);
       }
     }
   }, [activeIndex, pathname]);
 
-  const iconSpacing = 48;
-  const baseOffset = 16;
-
   return (
     <>
-      <div className="hidden md:flex sticky top-28 flex-col items-center py-4 px-2 bg-white rounded-3xl shadow-xl w-14 h-[220px] min-w-[56px]">
+      <nav
+        className="hidden md:flex sticky top-28 flex-col items-center py-4 px-2 bg-white rounded-3xl min-w-14"
+        aria-label="Main navigation"
+        style={{
+          boxShadow: "var(--shadow-sidebar)",
+          width: "var(--sidebar-width)",
+          height: "var(--sidebar-height)",
+        }}
+      >
         {activeIndex !== -1 && (
           <div
-            className="absolute left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-gradient-to-b from-[#F9F3F3]/40 to-[#FBFAFA]/10 transition-all duration-300 ease-in-out"
+            className="absolute left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-gradient-to-b transition-all"
             style={{
-              top: `${activeIndex * iconSpacing + baseOffset}px`,
-              boxShadow: `
-                2px 2px 4px rgba(0, 0, 0, 0.2),
-                -2px -2px 4px rgba(255, 255, 255, 0.3),
-                0px -3px 5px rgba(0, 0, 0, 0.15)
-              `,
+              top: `calc(${activeIndex} * var(--sidebar-icon-spacing) + var(--sidebar-base-offset))`,
+              backgroundImage:
+                "linear-gradient(to bottom, var(--gradient-start), var(--gradient-end))",
+              boxShadow: "var(--shadow-sidebar-indicator)",
+              transitionDuration: "var(--transition-duration)",
+              transitionTimingFunction: "var(--transition-timing)",
             }}
           />
         )}
         <div className="flex flex-col gap-3 z-10">
-          {icons.map((Icon, index) => (
-            <button
-              key={index}
-              onClick={() => router.push(routes[index])}
-              className={`w-9 h-9 flex items-center justify-center transition ${
-                activeIndex === index ? "text-black" : "text-gray-600"
-              } hover:text-black`}
-              title={routes[index] === "/" ? "Home" : routes[index].slice(1)}
-            >
-              <Icon size={18} strokeWidth={2} />
-            </button>
-          ))}
+          {routes.map((route, index) => {
+            const Icon = route.icon;
+            return (
+              <button
+                key={route.id}
+                onClick={() => router.push(route.path)}
+                className="w-9 h-9 flex items-center justify-center transition hover:text-black"
+                style={{
+                  color:
+                    activeIndex === index
+                      ? "var(--text-primary)"
+                      : "var(--text-secondary)",
+                }}
+                aria-label={route.label}
+                aria-current={activeIndex === index ? "page" : undefined}
+                title={route.label}
+              >
+                <Icon size={ICON_SIZE} strokeWidth={ICON_STROKE_WIDTH} />
+              </button>
+            );
+          })}
         </div>
-      </div>
+      </nav>
 
-      <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
-        <div className="flex items-center py-2 px-4 bg-white rounded-3xl shadow-xl h-14 relative">
+      <nav
+        className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50"
+        aria-label="Main navigation"
+      >
+        <div
+          className="flex items-center py-2 px-4 bg-white rounded-3xl h-14 relative"
+          style={{ boxShadow: "var(--shadow-sidebar)" }}
+        >
           {activeIndex !== -1 && (
             <div
-              className="absolute top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-gradient-to-b from-[#F9F3F3]/40 to-[#FBFAFA]/10 transition-all duration-300 ease-in-out"
+              className="absolute top-1/2 -translate-y-1/2 w-9 h-9 rounded-full transition-all"
               style={{
                 left: `${indicatorPos}px`,
-                boxShadow: `
-                  2px 2px 4px rgba(0, 0, 0, 0.2),
-                  -2px -2px 4px rgba(255, 255, 255, 0.3),
-                  0px -3px 5px rgba(0, 0, 0, 0.15)
-                `,
+                backgroundImage:
+                  "linear-gradient(to bottom, var(--gradient-start), var(--gradient-end))",
+                boxShadow: "var(--shadow-sidebar-indicator)",
+                transitionDuration: "var(--transition-duration)",
+                transitionTimingFunction: "var(--transition-timing)",
               }}
             />
           )}
           <div className="flex gap-4 z-10">
-            {icons.map((Icon, index) => (
-              <button
-                key={index}
-                ref={(el) => {
-                  mobileRefs.current[index] = el;
-                }}
-                onClick={() => router.push(routes[index])}
-                className={`w-9 h-9 flex items-center justify-center transition ${
-                  activeIndex === index ? "text-black" : "text-gray-600"
-                } hover:text-black`}
-                title={routes[index] === "/" ? "Home" : routes[index].slice(1)}
-              >
-                <Icon size={18} strokeWidth={2} />
-              </button>
-            ))}
+            {routes.map((route, index) => {
+              const Icon = route.icon;
+              return (
+                <button
+                  key={route.id}
+                  ref={(el) => {
+                    mobileRefs.current[index] = el;
+                  }}
+                  onClick={() => router.push(route.path)}
+                  className="w-9 h-9 flex items-center justify-center transition hover:text-black"
+                  style={{
+                    color:
+                      activeIndex === index
+                        ? "var(--text-primary)"
+                        : "var(--text-secondary)",
+                  }}
+                  aria-label={route.label}
+                  aria-current={activeIndex === index ? "page" : undefined}
+                  title={route.label}
+                >
+                  <Icon size={ICON_SIZE} strokeWidth={ICON_STROKE_WIDTH} />
+                </button>
+              );
+            })}
           </div>
         </div>
-      </div>
+      </nav>
     </>
   );
 }

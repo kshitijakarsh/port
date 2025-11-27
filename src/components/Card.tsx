@@ -2,20 +2,9 @@
 
 import Image from "next/image";
 import React from "react";
+import { Project } from "@/types";
 
-interface Tech {
-  stack: string;
-}
-
-interface CardProps {
-  image: string;
-  title: string;
-  description: string;
-  techUsed: readonly Tech[];
-  githubUrl: string;
-  liveUrl: string;
-  imageAlt?: string;
-}
+type CardProps = Omit<Project, "id">;
 
 export default function Card({
   image,
@@ -28,8 +17,9 @@ export default function Card({
 }: CardProps) {
   return (
     <div
-      className="max-w-xs w-full h-auto p-3 space-y-3 bg-[#F8F8F8] font-marvel"
+      className="max-w-xs w-full h-auto p-3 space-y-3 font-marvel"
       style={{
+        backgroundColor: "var(--bg-card)",
         border: "var(--thin-border)",
         borderRadius: "var(--outer-radius)",
       }}
@@ -54,8 +44,10 @@ export default function Card({
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-2.5 py-0.5 text-xs font-light text-foreground bg-white"
+            className="px-2.5 py-0.5 text-xs font-light"
             style={{
+              color: "var(--text-primary)",
+              backgroundColor: "var(--bg-button)",
               borderRadius: "var(--outer-radius)",
               border: "var(--thin-border)",
             }}
@@ -66,8 +58,10 @@ export default function Card({
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-2.5 py-0.5 text-xs font-light text-foreground bg-white"
+            className="px-2.5 py-0.5 text-xs font-light"
             style={{
+              color: "var(--text-primary)",
+              backgroundColor: "var(--bg-button)",
               borderRadius: "var(--outer-radius)",
               border: "var(--thin-border)",
             }}
@@ -82,9 +76,11 @@ export default function Card({
       <div className="flex flex-wrap gap-1.5 px-2">
         {techUsed?.map((tech) => (
           <span
-            key={tech.stack}
-            className="px-2.5 py-0.5 text-xs font-light text-foreground bg-white"
+            key={tech.id}
+            className="px-2.5 py-0.5 text-xs font-light"
             style={{
+              color: "var(--text-primary)",
+              backgroundColor: "var(--bg-button)",
               borderRadius: "var(--outer-radius)",
               border: "var(--thin-border)",
             }}
