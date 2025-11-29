@@ -34,6 +34,16 @@ export default function Projects() {
     }
   }, [isOpen]);
 
+  // 🚀 Auto-trigger folder animation on mount
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+      setTimeout(() => setAnimateCards(true), 350);
+    }, 500); // Start animation after 500ms
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleFolderClick = () => {
     if (!isOpen) {
       setIsOpen(true);
