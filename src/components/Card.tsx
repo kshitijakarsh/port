@@ -29,7 +29,7 @@ export default function Card({
 
   return (
     <div
-      className="relative max-w-xs w-full h-96 p-3 space-y-3 font-marvel transition-all duration-300"
+      className="relative w-full max-w-xs sm:max-w-sm md:max-w-xs lg:max-w-sm h-80 sm:h-96 p-2 sm:p-3 space-y-2 sm:space-y-3 font-marvel transition-all duration-300"
       onMouseMove={handleMove}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
@@ -58,22 +58,22 @@ export default function Card({
           alt={imageAlt}
           width={360}
           height={225}
-          className="rounded-md object-cover w-full h-[180px]"
+          className="rounded-md object-cover w-full h-32 sm:h-40 md:h-44"
         />
       </div>
 
       {/* TITLE + BUTTONS */}
-      <div className="flex items-center justify-between px-2">
-        <h1 className="font-semibold text-lg text-foreground tracking-wide">
+      <div className="flex items-center justify-between px-1 sm:px-2 gap-2">
+        <h1 className="font-semibold text-sm sm:text-base md:text-lg text-foreground tracking-wide truncate">
           {title}
         </h1>
 
-        <div className="flex gap-1.5">
+        <div className="flex gap-1 sm:gap-1.5 flex-shrink-0">
           <a
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-2.5 py-0.5 text-xs font-light"
+            className="px-1.5 sm:px-2.5 py-0.5 text-[10px] sm:text-xs font-light whitespace-nowrap"
             style={{
               color: "var(--text-primary)",
               backgroundColor: "var(--bg-button)",
@@ -88,7 +88,7 @@ export default function Card({
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-2.5 py-0.5 text-xs font-light"
+            className="px-1.5 sm:px-2.5 py-0.5 text-[10px] sm:text-xs font-light whitespace-nowrap"
             style={{
               color: "var(--text-primary)",
               backgroundColor: "var(--bg-button)",
@@ -102,16 +102,16 @@ export default function Card({
       </div>
 
       {/* DESCRIPTION */}
-      <p className="text-xs text-foreground leading-relaxed px-2 line-clamp-3">
+      <p className="text-[10px] sm:text-xs text-foreground leading-relaxed px-1 sm:px-2 line-clamp-2 sm:line-clamp-3">
         {description}
       </p>
 
       {/* STACK TAGS */}
-      <div className="absolute bottom-4 left-0 right-0 flex flex-wrap gap-1.5 px-2">
+      <div className="absolute bottom-2 sm:bottom-3 md:bottom-4 left-0 right-0 flex flex-wrap gap-1 sm:gap-1.5 px-1 sm:px-2">
         {techUsed?.map((tech) => (
           <span
             key={tech.id}
-            className="px-2.5 py-0.5 text-xs font-light"
+            className="px-1.5 sm:px-2 md:px-2.5 py-0.5 text-[9px] sm:text-[10px] md:text-xs font-light"
             style={{
               color: "var(--text-primary)",
               backgroundColor: "var(--bg-button)",

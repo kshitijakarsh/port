@@ -45,18 +45,26 @@ export default function Projects() {
   };
 
   return (
-    <div className="flex justify-center mt-12">
-      <div className="flex flex-col gap-6 max-w-3xl w-full">
-        <p className="text-xl serif font-semibold text-center">Proof Of Work</p>
+    <div className="flex justify-center mt-6 sm:mt-8 md:mt-12 px-2 sm:px-4">
+      <div className="flex flex-col gap-4 sm:gap-6 max-w-3xl w-full">
+        <p className="text-lg sm:text-xl md:text-2xl serif font-semibold text-center">Proof Of Work</p>
 
+        {/* Mobile: Simple grid layout */}
+        <div className="grid grid-cols-1 gap-3 sm:hidden">
+          {projects.map((project) => (
+            <Card key={project.id} {...project} />
+          ))}
+        </div>
+
+        {/* Desktop: Folder animation */}
         <div
           ref={containerRef}
-          className="relative min-h-[500px] rounded-2xl p-4 overflow-hidden"
+          className="hidden sm:block relative min-h-[500px] md:min-h-[600px] rounded-xl sm:rounded-2xl p-2 sm:p-3 md:p-4 overflow-hidden"
         >
           {/* Folder Icon */}
           <div
             ref={folderRef}
-            className="absolute bottom-48 right-8 z-50 pointer-events-auto"
+            className="absolute bottom-40 md:bottom-48 right-4 md:right-8 z-50 pointer-events-auto"
           >
             <ProjectFolder
               isOpen={isOpen}

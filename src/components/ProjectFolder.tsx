@@ -13,12 +13,11 @@ export default function ProjectFolder({ isOpen, onClick, filesExited = false }: 
       onClick={onClick}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.98 }}
-      className="relative cursor-pointer"
-      style={{ width: "200px", height: "180px" }}
+      className="relative cursor-pointer w-32 h-28 sm:w-40 sm:h-36 md:w-48 md:h-40 lg:w-52 lg:h-44"
       aria-label="Open projects folder"
     >
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative w-48 h-36">
+        <div className="relative w-full h-full">
           {/* Folder body */}
           <div
             className="relative w-full h-full rounded-3xl shadow-2xl overflow-hidden"
@@ -29,7 +28,6 @@ export default function ProjectFolder({ isOpen, onClick, filesExited = false }: 
           >
             <motion.div
               className="absolute inset-0 flex items-center justify-center pt-8 pb-16"
-              animate={{ opacity: filesExited ? 0 : 1 }}
               transition={{ duration: 0.3 }}
             >
               <motion.div
@@ -103,9 +101,9 @@ export default function ProjectFolder({ isOpen, onClick, filesExited = false }: 
             />
 
             {/* Text content */}
-            <div className="absolute bottom-4 left-4 text-white z-10">
-              <h3 className="text-xl font-bold serif">Projects</h3>
-              <p className="text-[10px] opacity-90 mt-0.5">Proof of Work</p>
+            <div className="absolute bottom-2 sm:bottom-3 md:bottom-4 left-2 sm:left-3 md:left-4 text-white z-10">
+              <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold serif">Projects</h3>
+              <p className="text-[8px] sm:text-[9px] md:text-[10px] opacity-90 mt-0.5">Proof of Work</p>
             </div>
           </div>
         </div>

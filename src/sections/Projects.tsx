@@ -12,7 +12,7 @@ export default function Projects() {
           <p className="text-lg sm:text-xl serif font-semibold">
             Proof Of Work
           </p>
-          <div className="flex flex-col sm:flex-wrap sm:flex-row gap-3 sm:gap-4 px-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 px-2">
             {projects.map((project) => (
               <Card
                 key={project.id}
