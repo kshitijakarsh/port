@@ -19,7 +19,7 @@ export default function Card({
   const [coords, setCoords] = useState({ x: 0, y: 0 });
   const [hovering, setHovering] = useState(false);
 
-  const handleMove = (e: any) => {
+  const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     setCoords({
       x: e.clientX - rect.left,

@@ -29,6 +29,7 @@ export default function ProjectFolder({ isOpen, onClick, filesExited = false }: 
           >
             <motion.div
               className="absolute inset-0 flex items-center justify-center pt-8 pb-16"
+              animate={{ opacity: filesExited ? 0 : 1 }}
               transition={{ duration: 0.3 }}
             >
               <motion.div
