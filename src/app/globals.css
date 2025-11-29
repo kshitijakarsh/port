@@ -45,13 +45,6 @@
   --icon-button-size: 36px;
   --icon-button-small: 16px;
 
-  /* Shadows */
-  --shadow-sidebar: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --shadow-sidebar-indicator:
-    2px 2px 4px rgba(0, 0, 0, 0.2),
-    -2px -2px 4px rgba(255, 255, 255, 0.3),
-    0px -3px 5px rgba(0, 0, 0, 0.15);
-
   /* Transitions */
   --transition-duration: 300ms;
   --transition-timing: ease-in-out;

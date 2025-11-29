@@ -17,6 +17,7 @@ export const projects: readonly Project[] = [
     ],
     githubUrl: "https://github.com/kshitijakarsh/Dhairya",
     liveUrl: "https://dhairya-five.vercel.app/",
+    backgroundColor: "#ffc9c9",
   },
   {
     id: "elevance",
@@ -31,6 +32,7 @@ export const projects: readonly Project[] = [
     ],
     githubUrl: "https://github.com/kshitijakarsh/elevance",
     liveUrl: "https://elevance-web.vercel.app/",
+    backgroundColor: "#ffd6a7",
   },
   {
     id: "codesblue",
@@ -44,6 +46,7 @@ export const projects: readonly Project[] = [
     ],
     githubUrl: "https://github.com/kshitijakarsh/codesblue",
     liveUrl: "https://www.codesblue.com/",
+    backgroundColor: "#B3DBF4",
   },
 ] as const;
 

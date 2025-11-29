@@ -20,6 +20,7 @@ export interface Project {
   githubUrl: string;
   liveUrl: string;
   imageAlt?: string;
+  backgroundColor?: string;
 }
 
 /**

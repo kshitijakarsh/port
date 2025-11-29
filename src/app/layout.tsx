@@ -36,7 +36,7 @@ export default function RootLayout({
           <div className="flex justify-center">
             <div className="flex w-full max-w-3xl">
               <Sidebar />
-              <main className="flex-1 p-4 pb-22" role="main">
+              <main className="flex-1 pb-22 sm:pb-0" role="main">
                 {children}
               </main>
             </div>

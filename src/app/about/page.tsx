@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <div className="flex justify-center px-4">
+    <div className="flex justify-center px-4 h-screen">
       <div className="max-w-3xl">
         <p className="text-xl serif font-semibold py-4 px-4 text-center mt-10">
           About
