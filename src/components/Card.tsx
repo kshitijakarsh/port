@@ -29,7 +29,7 @@ export default function Card({
 
   return (
     <div
-      className="relative w-full max-w-xs sm:max-w-sm md:max-w-xs lg:max-w-sm h-80 sm:h-96 p-2 sm:p-3 space-y-2 sm:space-y-3 font-marvel transition-all duration-300"
+      className="relative w-full max-w-xs sm:max-w-sm md:max-w-xs lg:max-w-sm h-56 sm:h-80 p-2 sm:p-3 space-y-2 sm:space-y-3 font-marvel transition-all duration-300 "
       onMouseMove={handleMove}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
@@ -46,7 +46,7 @@ export default function Card({
           : "transparent",
       }}
     >
-      {/* IMAGE */}
+
       <div
         style={{
           borderRadius: "var(--inner-radius)",
@@ -62,7 +62,6 @@ export default function Card({
         />
       </div>
 
-      {/* TITLE + BUTTONS */}
       <div className="flex items-center justify-between px-1 sm:px-2 gap-2">
         <h1 className="font-semibold text-sm sm:text-base md:text-lg text-foreground tracking-wide truncate">
           {title}
@@ -101,13 +100,11 @@ export default function Card({
         </div>
       </div>
 
-      {/* DESCRIPTION */}
       <p className="text-[10px] sm:text-xs text-foreground leading-relaxed px-1 sm:px-2 line-clamp-2 sm:line-clamp-3">
         {description}
       </p>
 
-      {/* STACK TAGS */}
-      <div className="absolute bottom-2 sm:bottom-3 md:bottom-4 left-0 right-0 flex flex-wrap gap-1 sm:gap-1.5 px-1 sm:px-2">
+      {/* <div className="absolute bottom-2 sm:bottom-3 md:bottom-4 left-0 right-0 flex flex-wrap gap-1 sm:gap-1.5 px-1 sm:px-2">
         {techUsed?.map((tech) => (
           <span
             key={tech.id}
@@ -122,7 +119,7 @@ export default function Card({
             {tech.stack}
           </span>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
