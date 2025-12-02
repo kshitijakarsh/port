@@ -33,8 +33,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${manrope.variable} ${instrumentSerif.variable}`}>
         <ErrorBoundary>
-          <div className="flex justify-center">
-            <div className="flex w-full max-w-3xl">
+          <div className="flex justify-center max-w-3xl mx-auto">
+            <div className="flex">
               <Sidebar />
               <main className="flex-1 mb-22 sm:pb-0" role="main">
                 {children}

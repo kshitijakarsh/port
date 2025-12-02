@@ -7,7 +7,7 @@ import Button from "@/components/Button";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen">
+    <div>
       <div className="w-[1px] bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 inset-shadow " />
       <div className="flex-1">
         <div className="flex justify-between items-center gap-6 w-full px-4 sm:px-8 md:px-12 lg:px-16">
