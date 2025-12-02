@@ -79,7 +79,6 @@ export default function Projects() {
             <ProjectFolder
               isOpen={isOpen}
               onClick={handleFolderClick}
-              filesExited={animateCards}
             />
           </div>
 

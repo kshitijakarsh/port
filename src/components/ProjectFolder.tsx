@@ -7,7 +7,7 @@ interface ProjectFolderProps {
   filesExited?: boolean;
 }
 
-export default function ProjectFolder({ isOpen, onClick, filesExited = false }: ProjectFolderProps) {
+export default function ProjectFolder({ isOpen, onClick}: ProjectFolderProps) {
   return (
     <motion.button
       onClick={onClick}

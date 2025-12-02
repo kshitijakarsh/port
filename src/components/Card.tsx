@@ -10,7 +10,6 @@ export default function Card({
   image,
   title,
   description,
-  techUsed,
   githubUrl,
   liveUrl,
   backgroundColor,
@@ -103,23 +102,6 @@ export default function Card({
       <p className="text-[10px] sm:text-xs text-foreground leading-relaxed px-1 sm:px-2 line-clamp-2 sm:line-clamp-3">
         {description}
       </p>
-
-      {/* <div className="absolute bottom-2 sm:bottom-3 md:bottom-4 left-0 right-0 flex flex-wrap gap-1 sm:gap-1.5 px-1 sm:px-2">
-        {techUsed?.map((tech) => (
-          <span
-            key={tech.id}
-            className="px-1.5 sm:px-2 md:px-2.5 py-0.5 text-[9px] sm:text-[10px] md:text-xs font-light"
-            style={{
-              color: "var(--text-primary)",
-              backgroundColor: "var(--bg-button)",
-              borderRadius: "var(--outer-radius)",
-              border: "var(--thin-border)",
-            }}
-          >
-            {tech.stack}
-          </span>
-        ))}
-      </div> */}
     </div>
   );
 }
