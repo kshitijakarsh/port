@@ -6,7 +6,7 @@ export default function DesignShowcase() {
 
   return (
     <div className="flex flex-col gap-6 mt-12 px-2 sm:px-4">
-      <p className="text-xl serif font-semibold text-center">Design Showcase</p>
+      <p className="text-lg sm:text-xl md:text-2xl serif font-semibold text-center">Design Showcase</p>
 
       <div className="flex justify-center flex-wrap gap-4 items-start">
         {designVideos.map((video) => (
