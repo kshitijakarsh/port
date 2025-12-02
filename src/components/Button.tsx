@@ -8,7 +8,7 @@ export default function Button({ text }: ButtonProps) {
 
   if (text.toLowerCase() === "download resume") {
     return (
-      <a href="/Kshitij_Akarsh_Resume.pdf" download className={baseStyles}>
+      <a href="/Kshitij_Akarsh.pdf" download className={baseStyles}>
         {text}
       </a>
     );
