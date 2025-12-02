@@ -5,22 +5,20 @@ export default function DesignShowcase() {
   const designVideos = getAllDesigns();
 
   return (
-    <div className="flex justify-center mt-12">
-      <div className="flex flex-col gap-6 max-w-3xl w-full">
-        <p className="text-xl serif font-semibold text-center">
-          Design Showcase
-        </p>
-        <div className="flex gap-4 justify-center flex-wrap">
-          {designVideos.map((video) => (
-            <VideoCard
-              key={video.id}
-              videoSrc={video.videoSrc}
-              title={video.title}
-              description={video.description}
-              toolsUsed={video.toolsUsed}
-            />
-          ))}
-        </div>
+    <div className="flex flex-col gap-6 mt-12 px-2 sm:px-4">
+      <p className="text-xl serif font-semibold text-center">Design Showcase</p>
+
+      <div className="flex justify-center flex-wrap gap-4 items-start">
+        {designVideos.map((video) => (
+          <VideoCard
+            key={video.id}
+            videoSrc={video.videoSrc}
+            title={video.title}
+            description={video.description}
+            toolsUsed={video.toolsUsed}
+            videoType={video.videoType}
+          />
+        ))}
       </div>
     </div>
   );

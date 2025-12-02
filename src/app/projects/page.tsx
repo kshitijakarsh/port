@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import { motion } from "framer-motion";
 import Card from "@/components/Card";
 import ProjectFolder from "@/components/ProjectFolder";
@@ -17,29 +17,33 @@ export default function Projects() {
 
   const [origin, setOrigin] = useState({ x: 0, y: 0 });
 
-  // 🟦 Card size (matches Card.tsx)
   const CARD_WIDTH = 320;
-  const CARD_HEIGHT = 380;
+  const CARD_HEIGHT = 320;
 
-  // 🔵 Correct: Get folder position relative to container
-  useEffect(() => {
-    if (folderRef.current && containerRef.current) {
-      const folderRect = folderRef.current.getBoundingClientRect();
-      const containerRect = containerRef.current.getBoundingClientRect();
+  const updateOrigin = () => {
+    if (!folderRef.current || !containerRef.current) return;
 
-      setOrigin({
-        x: folderRect.left - containerRect.left + folderRect.width / 2,
-        y: folderRect.top - containerRect.top + folderRect.height / 2,
-      });
-    }
-  }, [isOpen]);
+    const folderRect = folderRef.current.getBoundingClientRect();
+    const containerRect = containerRef.current.getBoundingClientRect();
 
-  // 🚀 Auto-trigger folder animation on mount
+    setOrigin({
+      x: folderRect.left - containerRect.left + folderRect.width / 2,
+      y: folderRect.top - containerRect.top + folderRect.height / 2,
+    });
+  };
+
+  useLayoutEffect(() => {
+    updateOrigin();
+
+    window.addEventListener("resize", updateOrigin);
+    return () => window.removeEventListener("resize", updateOrigin);
+  }, []);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsOpen(true);
       setTimeout(() => setAnimateCards(true), 350);
-    }, 500); // Start animation after 500ms
+    }, 500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -55,45 +59,41 @@ export default function Projects() {
   };
 
   return (
-    <div className="flex justify-center mt-6 sm:mt-8 md:mt-12 px-2 sm:px-4">
-      <div className="flex flex-col gap-4 sm:gap-6 max-w-3xl w-full">
-        <p className="text-lg sm:text-xl md:text-2xl serif font-semibold text-center">Proof Of Work</p>
+    <div className="flex justify-center mx-auto">
+      <div className="flex flex-col gap-4 sm:gap-6 w-full mt-6 sm:mt-8 md:mt-12 px-2 sm:px-4">
+        <p className="text-lg sm:text-xl md:text-2xl serif font-semibold text-center">
+          Proof Of Work
+        </p>
 
-        {/* Mobile: Simple grid layout */}
         <div className="grid grid-cols-1 gap-3 sm:hidden">
           {projects.map((project) => (
             <Card key={project.id} {...project} />
           ))}
         </div>
 
-        {/* Desktop: Folder animation */}
         <div
           ref={containerRef}
-          className="hidden sm:block relative min-h-[500px] md:min-h-[600px] rounded-xl sm:rounded-2xl p-2 sm:p-3 md:p-4 overflow-hidden"
+          className="hidden sm:block relative min-h-[380px] md:min-h-[650px] 
+                     rounded-xl sm:rounded-2xl p-2 sm:p-3 md:p-4 overflow-hidden"
         >
-          {/* Folder Icon */}
           <div
             ref={folderRef}
-            className="absolute bottom-40 md:bottom-48 right-4 md:right-8 z-50 pointer-events-auto"
+            className="absolute bottom-10 right-10 sm:bottom-16 sm:right-16 z-50"
           >
-            <ProjectFolder
-              isOpen={isOpen}
-              onClick={handleFolderClick}
-            />
+            <ProjectFolder isOpen={isOpen} onClick={handleFolderClick} />
           </div>
 
-          {/* Cards */}
+
           <div className="grid grid-cols-2 gap-4 w-full relative">
             {projects.map((project, index) => {
-              const stackRotate = (index - projects.length / 2) * 6;
-
-              const arcX = (index % 2 === 0 ? -1 : 1) * 40;
-              const arcY = index * -12;
+              const angle = (index - projects.length / 2) * 6;
+              const arcX = (index % 2 === 0 ? -1 : 1) * 30;
+              const arcY = index * -10;
 
               return (
                 <motion.div
                   key={project.id}
-                  className="relative h-[380px]"
+                  className="relative h-[320px]"
                   initial={false}
                   animate={
                     animateCards
@@ -103,14 +103,13 @@ export default function Projects() {
                           scale: 1,
                           rotate: 0,
                           opacity: 1,
-                          zIndex: 5,
+                          zIndex: 10,
                         }
                       : {
-                          // 🔥 PERFECT: Cards collapse to folder center
                           x: origin.x - CARD_WIDTH / 2 + arcX,
                           y: origin.y - CARD_HEIGHT / 2 + arcY,
                           scale: 0.22,
-                          rotate: stackRotate,
+                          rotate: angle,
                           opacity: 0,
                           zIndex: 50 - index,
                         }

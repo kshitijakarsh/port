@@ -32,6 +32,7 @@ export interface Design {
   title: string;
   description: string;
   toolsUsed: string[];
+  videoType: "mobile" | "web";
 }
 
 /**

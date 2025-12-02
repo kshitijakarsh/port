@@ -44,7 +44,7 @@ export default function Sidebar() {
   return (
     <>
       <nav
-        className="hidden md:flex sticky top-122 mr-2 flex-col items-center py-4 px-2 bg-gray-50 rounded-3xl min-w-14"
+        className="hidden md:flex sticky top-122 flex-col items-center py-4 bg-gray-50 rounded-3xl min-w-14"
         aria-label="Main navigation"
         style={{
           boxShadow: "var(--shadow-sidebar)",

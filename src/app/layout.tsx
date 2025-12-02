@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: "Kshitij Akarsh",
   description: "portfolio web",
   icons: {
-    icon: "/favicon.ico", 
+    icon: "/favicon.ico",
   },
 };
 
@@ -31,14 +31,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} ${instrumentSerif.variable}`}>
+      <body
+        className={`${manrope.variable} ${instrumentSerif.variable} bg-[repeating-linear-gradient(45deg,_#e5e7eb_0px,_#e5e7eb_1px,_transparent_1px,_transparent_8px)]`}
+      >
         <ErrorBoundary>
-          <div className="flex justify-center max-w-3xl mx-auto">
+          <div className="max-w-4xl mx-auto w-full">
             <div className="flex">
               <Sidebar />
-              <main className="flex-1 mb-22 sm:pb-0" role="main">
-                {children}
-              </main>
+              <main className="flex-1 w-full bg-white">{children}</main>
             </div>
           </div>
         </ErrorBoundary>

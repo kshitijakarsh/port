@@ -11,6 +11,7 @@ export const designs: readonly Design[] = [
     description:
       "A minimal music player app design for phones, featuring album art, playback controls, and smooth animations.",
     toolsUsed: ["Figma"],
+    videoType: "mobile",
   },
   {
     id: "domain-registry-landing",
@@ -19,6 +20,7 @@ export const designs: readonly Design[] = [
     description:
       "A sleek landing page design showcasing domain search, pricing, and extensions with a modern, intuitive layout.",
     toolsUsed: ["Figma"],
+    videoType: "web",
   },
 ] as const;
 
