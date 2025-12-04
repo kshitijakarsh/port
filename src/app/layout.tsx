@@ -35,7 +35,7 @@ export default function RootLayout({
         className={`${manrope.variable} ${instrumentSerif.variable} bg-[repeating-linear-gradient(45deg,_#e5e7eb_0px,_#e5e7eb_1px,_transparent_1px,_transparent_8px)]`}
       >
         <ErrorBoundary>
-          <div className="max-w-4xl mx-auto w-full">
+          <div className="max-w-4xl mx-auto w-full mb-22">
             <div className="flex">
               <Sidebar />
               <main className="flex-1 w-full bg-white">{children}</main>

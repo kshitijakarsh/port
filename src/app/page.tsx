@@ -8,20 +8,23 @@ import Button from "@/components/Button";
 
 export default function Home() {
   return (
-    <div className="flex">
-      <div className="w-[1px] bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 inset-shadow " />
-      <div className="flex-1 ">
-        <div className="flex justify-between items-center gap-6 w-full px-4 sm:px-8 md:px-12 lg:px-16 ">
+    <div className="flex w-full">
+      <div className="hidden sm:block w-[1px] bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 inset-shadow" />
+
+      <div className="flex-1 w-full">
+        <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 w-full px-4 sm:px-8 md:px-12 lg:px-16">
           <GradientText
             text="Kshitij Akarsh"
             gradient="linear-gradient(90deg, #3b82f6 0%, #a855f7 50%, #ec4899 100%)"
-            className="serif text-4xl text-center mt-10 mb-10"
+            className="serif text-3xl sm:text-4xl text-center mt-10 mb-2 sm:mb-10"
           />
-          <Button text="Download Resume" />
-        </div>
 
+          <div className="hidden sm:flex justify-end">
+            <Button text="Download Resume" />
+          </div>
+        </div>
         <div className="flex justify-center">
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 w-full max-w-4xl">
             <CoverSection />
             <About />
             <Projects />
@@ -30,7 +33,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="w-[1px] bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 inset-shadow" />
+      <div className="hidden sm:block w-[1px] bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 inset-shadow" />
     </div>
   );
 }

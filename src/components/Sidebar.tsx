@@ -129,7 +129,7 @@ export default function Sidebar() {
                 </button>
               );
             })}
-            <button key="download-resume-button" className="ml-4">
+            <button key="download-resume-button" className="ml-4 opacity-60 scale-90">
               <Download />
             </button>
           </div>
