@@ -3,6 +3,7 @@ import { Instrument_Serif, Manrope } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import { Analytics } from "@vercel/analytics/next";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -38,7 +39,9 @@ export default function RootLayout({
           <div className="max-w-4xl mx-auto w-full mb-22">
             <div className="flex">
               <Sidebar />
-              <main className="flex-1 w-full bg-white">{children}</main>
+              <main className="flex-1 w-full bg-white">
+                {children} <Analytics />
+              </main>
             </div>
           </div>
         </ErrorBoundary>
