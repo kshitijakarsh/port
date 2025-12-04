@@ -1,9 +1,6 @@
-"use client"
+"use client";
 
-import {
-  ChartContainer,
-  ChartTooltipContent,
-} from "@/components/ui/chart"
+import { ChartContainer, ChartTooltipContent } from "@/components/ui/chart";
 
 import {
   LineChart,
@@ -13,10 +10,22 @@ import {
   CartesianGrid,
   ResponsiveContainer,
   Tooltip,
-} from "recharts"
+} from "recharts";
 
-export function GithubContributionChart({ data }: { data: any[] }) {
+export interface ChartPoint {
+  date: string;
+  contributions: number;
+}
 
+export interface GithubContributionChartProps {
+  data: ChartPoint[];
+}
+
+export function GithubContributionChart({
+  data,
+}: {
+  data: GithubContributionChartProps["data"];
+}) {
   return (
     <ChartContainer
       config={{
@@ -65,5 +74,5 @@ export function GithubContributionChart({ data }: { data: any[] }) {
         </LineChart>
       </ResponsiveContainer>
     </ChartContainer>
-  )
+  );
 }

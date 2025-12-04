@@ -7,20 +7,8 @@ import {
   SIDEBAR_MOBILE_OFFSET,
 } from "@/constants";
 import { routes } from "@/data/routes";
-import Button from "./Button";
 import { Download } from "lucide-react";
 
-/**
- * Sidebar Navigation Component
- *
- * Provides responsive navigation for both desktop and mobile viewports.
- * Features an animated indicator that highlights the current active route.
- *
- * Desktop: Vertical sidebar with icons, sticky positioned
- * Mobile: Horizontal bottom navigation bar with icons
- *
- * @returns Navigation sidebar with route indicators
- */
 export default function Sidebar() {
   const pathname = usePathname();
   const router = useRouter();
