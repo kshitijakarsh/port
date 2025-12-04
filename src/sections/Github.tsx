@@ -13,6 +13,7 @@ interface ContributionDay {
   date: string;
 }
 
+
 interface ContributionWeek {
   contributionDays: ContributionDay[];
 }
@@ -20,16 +21,6 @@ interface ContributionWeek {
 interface ContributionCalendar {
   totalContributions: number;
   weeks: ContributionWeek[];
-}
-
-interface ContributionsResponse {
-  data: {
-    user: {
-      contributionsCollection: {
-        contributionCalendar: ContributionCalendar;
-      };
-    };
-  };
 }
 
 export interface ChartPoint {
@@ -82,7 +73,7 @@ export default function Github() {
           response.data.data.user.contributionsCollection.contributionCalendar;
 
         const flat = calendar.weeks.flatMap(
-          (week: { contributionDays: any[] }) =>
+          (week: { contributionDays: ContributionDay[] }) =>
             week.contributionDays.map((day) => ({
               date: day.date,
               contributions: day.contributionCount,
