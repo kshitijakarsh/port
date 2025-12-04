@@ -13,7 +13,6 @@ interface ContributionDay {
   date: string;
 }
 
-
 interface ContributionWeek {
   contributionDays: ContributionDay[];
 }
@@ -21,6 +20,16 @@ interface ContributionWeek {
 interface ContributionCalendar {
   totalContributions: number;
   weeks: ContributionWeek[];
+}
+
+interface ContributionsResponse {
+  data: {
+    user: {
+      contributionsCollection: {
+        contributionCalendar: ContributionCalendar;
+      };
+    };
+  };
 }
 
 export interface ChartPoint {
