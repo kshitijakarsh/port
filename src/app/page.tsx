@@ -3,6 +3,7 @@ import { CoverSection } from "@/sections/Cover";
 import Projects from "@/sections/Projects";
 import RecentBlog from "@/sections/RecentBlogs";
 import { GradientText } from "@/components/ui/shadcn-io/gradient-text";
+import Github from "@/sections/Github";
 import Button from "@/components/Button";
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
             <About />
             <Projects />
             <RecentBlog />
+            <Github />
           </div>
         </div>
       </div>

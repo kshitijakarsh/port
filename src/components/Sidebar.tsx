@@ -7,6 +7,8 @@ import {
   SIDEBAR_MOBILE_OFFSET,
 } from "@/constants";
 import { routes } from "@/data/routes";
+import Button from "./Button";
+import { Download } from "lucide-react";
 
 /**
  * Sidebar Navigation Component
@@ -82,7 +84,11 @@ export default function Sidebar() {
                 aria-current={activeIndex === index ? "page" : undefined}
                 title={route.label}
               >
-                <Icon size={ICON_SIZE} strokeWidth={ICON_STROKE_WIDTH} className="hover:scale-110"/>
+                <Icon
+                  size={ICON_SIZE}
+                  strokeWidth={ICON_STROKE_WIDTH}
+                  className="hover:scale-110"
+                />
               </button>
             );
           })}
@@ -135,6 +141,9 @@ export default function Sidebar() {
                 </button>
               );
             })}
+            <button key="download-resume-button" className="ml-4">
+              <Download />
+            </button>
           </div>
         </div>
       </nav>

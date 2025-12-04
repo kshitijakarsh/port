@@ -1,0 +1,175 @@
+"use client";
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { GithubContributionChart } from "@/components/GithubContributionChart";
+import Button from "@/components/Button";
+import { GithubContributionMap } from "@/components/GithubContributionMap";
+import { type DateRange } from "react-day-picker";
+import { Calendar } from "@/components/ui/calendar";
+
+interface ContributionDay {
+  contributionCount: number;
+  date: string;
+}
+
+interface ContributionWeek {
+  contributionDays: ContributionDay[];
+}
+
+interface ContributionCalendar {
+  totalContributions: number;
+  weeks: ContributionWeek[];
+}
+
+interface ContributionsResponse {
+  data: {
+    user: {
+      contributionsCollection: {
+        contributionCalendar: ContributionCalendar;
+      };
+    };
+  };
+}
+
+export interface ChartPoint {
+  date: string;
+  contributions: number;
+}
+
+export default function Github() {
+  const [chartData, setChartData] = useState<ChartPoint[]>([]);
+  const [dateRange, setDateRange] = useState<DateRange | undefined>({
+    from: new Date(2025, 5, 12),
+    to: new Date(2025, 6, 15),
+  });
+  const [showcalendar, setShowcalendar] = useState<boolean>(false);
+  const [visualMode, setVisualMode] = useState<"chart" | "heatmap">("heatmap");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.post<ContributionsResponse>(
+          "https://api.github.com/graphql",
+          {
+            query: `
+              query($userName:String!) {
+                user(login: $userName){
+                  contributionsCollection {
+                    contributionCalendar {
+                      totalContributions
+                      weeks {
+                        contributionDays {
+                          contributionCount
+                          date
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            variables: {
+              userName: "kshitijakarsh",
+            },
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
+            },
+          }
+        );
+
+        const calendar =
+          response.data.data.user.contributionsCollection.contributionCalendar;
+
+        const flat: ChartPoint[] = calendar.weeks.flatMap((week) =>
+          week.contributionDays.map((day) => ({
+            date: day.date,
+            contributions: day.contributionCount,
+          }))
+        );
+
+        setChartData(flat);
+      } catch (error) {
+        console.error("Error fetching GitHub data", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const filteredData: ChartPoint[] = chartData.filter((d) => {
+    if (!dateRange?.from || !dateRange?.to) return true;
+    const date = new Date(d.date);
+    return date >= new Date(dateRange?.from) && date <= new Date(dateRange?.to);
+  });
+
+  return (
+    <div className="px-4">
+      <div className="flex justify-between items-center">
+        <h1 className="text-lg sm:text-xl serif font-semibold py-3 sm:py-4">
+          Github Contributions
+        </h1>
+
+        <div className="flex items-center gap-1 outline outline-offset-2 outline-amber-400 rounded-md">
+          <div
+            onClick={() => {
+              setVisualMode("heatmap");
+            }}
+          >
+            <Button text="Heatmap" />
+          </div>
+          <div className="self-stretch w-px bg-amber-400"></div>
+          <div
+            onClick={() => {
+              setVisualMode("chart");
+            }}
+          >
+            <Button text="Chart" />
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-center">
+        {visualMode === "chart" ? (
+          <div className="relative">
+            <div
+              onClick={() => setShowcalendar((prev) => !prev)}
+              className="flex justify-end mb-2 z-30 relative"
+            >
+              <Button text={showcalendar ? "Hide Calendar" : "Show Calendar"} />
+            </div>
+
+            {showcalendar && (
+              <div className="absolute inset-0 z-20 flex items-start justify-end pointer-events-none">
+                <div className="mt-8 rounded-lg border shadow-xl bg-white p-4 pointer-events-auto">
+                  <Calendar
+                    mode="range"
+                    defaultMonth={dateRange?.from}
+                    selected={dateRange}
+                    onSelect={setDateRange}
+                    numberOfMonths={2}
+                    className="rounded-lg"
+                  />
+                </div>
+              </div>
+            )}
+
+            <div
+              className={`${
+                showcalendar ? "opacity-30 pointer-events-none" : ""
+              }`}
+            >
+              <GithubContributionChart data={filteredData} />
+            </div>
+          </div>
+        ) : (
+          <div>
+            <GithubContributionMap />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

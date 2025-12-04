@@ -1,9 +1,10 @@
-import { Home, Info, BookOpen, PencilRuler } from "lucide-react";
+import { Home, Info, BookOpen, PencilRuler, Download } from "lucide-react";
 import { Route } from "@/types";
 
 /**
  * Navigation routes configuration
  */
+
 export const routes: readonly Route[] = [
   {
     id: "home",

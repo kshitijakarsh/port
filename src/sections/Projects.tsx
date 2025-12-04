@@ -8,7 +8,7 @@ export default function Projects() {
     <div className="px-4">
       <div className="bg-gradient-to-r from-gray-300 via-gray-400 to-gray-300 inset-shadow w-full h-[1px] mb-6"></div>
       <div className="sm:flex sm:justify-center sm:gap-8">
-        <div className="flex flex-col gap-4 sm:gap-6 w-full sm:w-3xl">
+        <div className="flex flex-col gap-4 sm:gap-6">
           <p className="text-lg sm:text-xl serif font-semibold">
             Proof Of Work
           </p>
