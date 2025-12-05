@@ -40,11 +40,12 @@ export default function RootLayout({
             <div className="flex">
               <Sidebar />
               <main className="flex-1 w-full bg-white">
-                {children} <Analytics />
+                {children}
               </main>
             </div>
           </div>
         </ErrorBoundary>
+        <Analytics />
       </body>
     </html>
   );
