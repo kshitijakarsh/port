@@ -10,13 +10,12 @@ export default function VideoCard({
   title,
   description,
   toolsUsed,
-  videoType, // ⬅️ add this
+  videoType,
 }: VideoCardProps) {
-  // Pick aspect ratio based on video type
   const aspectClass =
     videoType === "mobile"
-      ? "aspect-[9/16]" // tall mobile screen
-      : "aspect-video"; // 16:9 desktop screen
+      ? "aspect-[9/16]"
+      : "aspect-video";
 
   return (
     <div

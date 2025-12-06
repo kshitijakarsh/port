@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Project } from "@/types";
+import ProjectCard from "./ProjectCard";
 
 type CardProps = Omit<Project, "id">;
 
@@ -45,7 +46,6 @@ export default function Card({
           : "transparent",
       }}
     >
-
       <div
         style={{
           borderRadius: "var(--inner-radius)",
@@ -102,6 +102,10 @@ export default function Card({
       <p className="text-[10px] sm:text-xs text-foreground leading-relaxed px-1 sm:px-2 line-clamp-2 sm:line-clamp-3">
         {description}
       </p>
+
+      {/* <div className="px-1 sm:px-2">
+        <ProjectCard/>
+      </div> */}
     </div>
   );
 }

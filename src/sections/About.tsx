@@ -1,14 +1,17 @@
+import Button from "@/components/Button";
 import { FlipWords } from "@/components/ui/shadcn-io/flip-words";
+import Image from "next/image";
 
 export default function About() {
   const words = ["Frontend Developer", "Designer", "Learner"];
   return (
     <div className="px-4">
-      <p className="text-lg sm:text-xl serif font-semibold py-3 sm:py-4">
-        About
-      </p>
+      <div className="flex justify-between items-center gap-2">
+        <p className="text-lg sm:text-xl serif font-semibold">About</p>
+      </div>
+
       <p className="text-sm py-4">
-        I&apos;m a passionate{" "}
+        I'm a passionate
         <FlipWords
           words={words}
           duration={3000}
@@ -16,10 +19,15 @@ export default function About() {
           wordDelay={0.3}
           className="text-amber-600 font-semibold"
         />
-        with expertise in creating responsive, user-friendly web applications.
-        With experience in full-stack development, I have worked on projects
-        like Dhairya, an all-in-one gym management service, and Elevance, a
-        platform that helps users find jobs based on their resumes.
+        driven by curiosity, clarity, and a genuine love for thoughtful
+        creation.
+      </p>
+
+      <p className="text-sm py-4">
+        I love creating responsive, user-friendly web applications. With
+        experience in full-stack development, I have worked on projects like
+        Dhairya, an all-in-one gym management service, and Elevance, a platform
+        that helps users find jobs based on their resumes.
       </p>
 
       <p className="text-sm py-4">

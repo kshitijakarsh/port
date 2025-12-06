@@ -5,6 +5,7 @@ import RecentBlog from "@/sections/RecentBlogs";
 import { GradientText } from "@/components/ui/shadcn-io/gradient-text";
 import Github from "@/sections/Github";
 import Button from "@/components/Button";
+import Skills from "@/sections/Skills";
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
         <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 w-full px-4 sm:px-8 md:px-12 lg:px-16">
           <GradientText
             text="Kshitij Akarsh"
-            gradient="linear-gradient(90deg, #3b82f6 0%, #a855f7 50%, #ec4899 100%)"
+            gradient="linear-gradient(90deg, #fcd34d 0%, #f59e0b 50%, #f97316 100%)"
             className="serif text-3xl sm:text-4xl text-center mt-10 mb-2 sm:mb-10"
           />
 
@@ -30,6 +31,7 @@ export default function Home() {
             <Projects />
             <RecentBlog />
             <Github />
+            <Skills />
           </div>
         </div>
       </div>

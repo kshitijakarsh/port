@@ -129,8 +129,13 @@ export default function Sidebar() {
                 </button>
               );
             })}
-            <button key="download-resume-button" className="ml-4 opacity-60 scale-90">
-              <Download />
+            <button
+              key="download-resume-button"
+              className="ml-4 opacity-60 scale-80"
+            >
+              <a href="/Kshitij_Akarsh.pdf" download>
+                <Download />
+              </a>
             </button>
           </div>
         </div>
