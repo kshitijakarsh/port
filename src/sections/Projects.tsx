@@ -6,7 +6,7 @@ export default function Projects() {
 
   return (
     <div className="px-2 sm:px-0">
-      <div className="bg-gradient-to-r from-gray-300 via-gray-400 to-gray-300 inset-shadow w-full h-[1px] mb-6"></div>
+      <div className="bg-linear-to-r from-gray-300 via-gray-400 to-gray-300 inset-shadow w-full h-px mb-6"></div>
 
       <div className="sm:flex sm:justify-center sm:gap-8">
         <div className="flex flex-col gap-4 sm:gap-6">
@@ -32,7 +32,7 @@ export default function Projects() {
         </div>
       </div>
 
-      <div className="bg-gradient-to-r from-gray-300 via-gray-400 to-gray-300 inset-shadow w-full h-[1px] mt-6"></div>
+      <div className="bg-linear-to-r from-gray-300 via-gray-400 to-gray-300 inset-shadow w-full h-px mt-6"></div>
     </div>
   );
 }
