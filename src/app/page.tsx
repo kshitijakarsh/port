@@ -5,12 +5,11 @@ import RecentBlog from "@/sections/RecentBlogs";
 import { GradientText } from "@/components/ui/shadcn-io/gradient-text";
 import Github from "@/sections/Github";
 import Button from "@/components/Button";
-import Skills from "@/sections/Skills";
 
 export default function Home() {
   return (
     <div className="flex w-full">
-      <div className="hidden sm:block w-[1px] bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 inset-shadow" />
+      <div className="hidden sm:block w-px bg-gray-200 inset-shadow" />
 
       <div className="flex-1 w-full">
         <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 w-full px-4 sm:px-8 md:px-12 lg:px-16">
@@ -31,11 +30,10 @@ export default function Home() {
             <Projects />
             <RecentBlog />
             <Github />
-            <Skills />
           </div>
         </div>
       </div>
-      <div className="hidden sm:block w-[1px] bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 inset-shadow" />
+      <div className="hidden sm:block w-px bg-gray-200 inset-shadow" />
     </div>
   );
 }

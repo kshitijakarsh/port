@@ -106,7 +106,6 @@ export default function Github() {
 
   return (
     <div className="px-4 w-full">
-      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
         <h1 className="text-lg sm:text-xl serif font-semibold py-3 sm:py-4">
           Github Contributions
@@ -123,7 +122,7 @@ export default function Github() {
         </div>
       </div>
 
-      <div className="flex justify-center w-full">
+      <div className="flex justify-center w-full pb-10">
         {visualMode === "chart" ? (
           <div className="relative w-full max-w-3xl mt-4">
             <div

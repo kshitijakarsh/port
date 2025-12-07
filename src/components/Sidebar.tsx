@@ -34,7 +34,7 @@ export default function Sidebar() {
   return (
     <>
       <nav
-        className="hidden md:flex sticky top-122 flex-col items-center py-4 bg-gray-50 rounded-3xl min-w-14"
+        className="hidden md:flex sticky top-122 flex-col items-center py-4 bg-white rounded-2xl min-w-14 border border-amber-500"
         aria-label="Main navigation"
         style={{
           boxShadow: "var(--shadow-sidebar)",
@@ -44,7 +44,7 @@ export default function Sidebar() {
       >
         {activeIndex !== -1 && (
           <div
-            className="absolute left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-gradient-to-b transition-all shadow-[inset_0_-2px_4px_rgba(255,165,0,0.5)]"
+            className="absolute left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-linear-to-b transition-all shadow-[inset_0_-2px_4px_rgba(255,165,0,0.5)]"
             style={{
               top: `calc(${activeIndex} * var(--sidebar-icon-spacing) + var(--sidebar-base-offset))`,
               backgroundImage:
