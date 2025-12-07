@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   Dialog,
@@ -26,11 +26,12 @@ export default function ProjectCard(props: CardProps) {
       y: e.clientY - rect.top,
     });
   };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
         <div
-          className="relative w-full max-w-xs sm:max-w-sm md:max-w-xs lg:max-w-sm h-44 sm:h-60 p-2 sm:p-3 space-y-2 sm:space-y-3 font-marvel transition-all duration-300 "
+          className="relative w-full max-w-xs sm:max-w-sm md:max-w-xs lg:max-w-sm h-52 sm:h-64 p-2 sm:p-3 space-y-2 sm:space-y-3 font-marvel transition-all duration-300"
           onMouseMove={handleMove}
           onMouseEnter={() => setHovering(true)}
           onMouseLeave={() => setHovering(false)}
@@ -40,25 +41,19 @@ export default function ProjectCard(props: CardProps) {
             backgroundClip: "padding-box",
             background: hovering
               ? `radial-gradient(
-              140px circle at ${coords.x}px ${coords.y}px,
-              ${backgroundColor ?? "var(--bg-card)"},
-              transparent 70%
-            )`
+                  140px circle at ${coords.x}px ${coords.y}px,
+                  ${backgroundColor ?? "var(--bg-card)"},
+                  transparent 70%
+                )`
               : "transparent",
           }}
         >
-          <div
-            style={{
-              borderRadius: "var(--inner-radius)",
-              overflow: "hidden",
-            }}
-          >
+          <div className="relative w-full aspect-video overflow-hidden rounded-md">
             <Image
               src={image}
               alt={title}
-              width={360}
-              height={225}
-              className="rounded-md object-cover w-full h-32 sm:h-40 md:h-44"
+              fill
+              className="object-cover"
             />
           </div>
 
@@ -101,22 +96,28 @@ export default function ProjectCard(props: CardProps) {
           </div>
         </div>
       </DialogTrigger>
+
+      {/* ---------------- MODAL CONTENT ---------------- */}
+
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>{props.title}</DialogTitle>
-          <div className="border border-amber-300 ">
+
+          {/* CONSISTENT IMAGE IN MODAL */}
+          <div className="relative w-full aspect-video overflow-hidden rounded-md my-4 border border-amber-300">
             <Image
               src={props.image}
               alt={props.title}
-              width={440}
-              height={300}
-              className="rounded-md object-cover w-full h-32 sm:h-40 md:h-56 my-4"
+              fill
+              className="object-cover"
             />
           </div>
+
           <DialogDescription>{props.description}</DialogDescription>
         </DialogHeader>
 
-        <div className="flex flex-wrap gap-2">
+        {/* TECH STACK */}
+        <div className="flex flex-wrap gap-2 mt-4">
           {props.techUsed.map((tech) => (
             <span
               key={tech.stack}
