@@ -22,11 +22,26 @@ export const designs: readonly Design[] = [
     toolsUsed: ["Figma"],
     videoType: "web",
   },
+  {
+    id: "stash-bento",
+    videoSrc: "./Stash.mp4",
+    title: "Bento Card",
+    description:
+      "A bento-style card layout that highlights key product features in a clear, visually structured format.",
+    toolsUsed: ["Figma"],
+    videoType: "web",
+  },
+  {
+    id: "codes-blue-mock",
+    videoSrc: "./CodesBlueMock.mp4",
+    title: "CodesBlue Mock Landing Page",
+    description:
+      "A conceptual landing page for CodesBlue showcasing a modern UI approach with an emphasis on clarity, spacing, and feature-driven content.",
+    toolsUsed: ["Figma"],
+    videoType: "web",
+  },
 ] as const;
 
-/**
- * Get all designs
- */
 export const getAllDesigns = (): readonly Design[] => {
   return designs;
 };

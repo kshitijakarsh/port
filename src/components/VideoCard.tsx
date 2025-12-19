@@ -1,39 +1,20 @@
-"use client";
+type VideoCardProps = {
+  videoSrc: string;
+  videoType: "mobile" | "web";
+};
 
-import React from "react";
-import { Design } from "@/types";
+export default function VideoCard({ videoSrc, videoType }: VideoCardProps) {
+  const aspectClass = videoType === "mobile" ? "aspect-[9/16]" : "aspect-video";
 
-type VideoCardProps = Omit<Design, "id">;
-
-export default function VideoCard({
-  videoSrc,
-  title,
-  description,
-  toolsUsed,
-  videoType,
-}: VideoCardProps) {
-  const aspectClass =
-    videoType === "mobile"
-      ? "aspect-[9/16]"
-      : "aspect-video";
+  const widthClass = videoType === "mobile" ? "max-w-xs" : "max-w-3xl";
 
   return (
-    <div
-      className="max-w-xs w-full h-auto p-3 space-y-3 font-marvel"
-      style={{
-        backgroundColor: "var(--bg-card)",
-        border: "var(--thin-border)",
-        borderRadius: "var(--outer-radius)",
-      }}
+    <article
+      className={`w-full ${widthClass} flex flex-col`}
     >
-      {/* VIDEO */}
-      <div
-        className={`w-full ${aspectClass} overflow-hidden`}
-        style={{ borderRadius: "var(--inner-radius)" }}
-      >
+      <div className={`w-full ${aspectClass} overflow-hidden`}>
         <video
-          controls
-          className="w-full h-full object-cover rounded-md"
+          className="block w-full h-full object-cover"
           autoPlay
           muted
           loop
@@ -42,36 +23,6 @@ export default function VideoCard({
           <source src={videoSrc} type="video/mp4" />
         </video>
       </div>
-
-      {/* TITLE */}
-      <div className="px-2">
-        <h1 className="font-semibold text-lg text-foreground tracking-wide">
-          {title}
-        </h1>
-      </div>
-
-      {/* DESCRIPTION */}
-      <p className="text-xs text-foreground leading-relaxed px-2">
-        {description}
-      </p>
-
-      {/* TOOLS */}
-      <div className="flex flex-wrap gap-1.5 px-2">
-        {toolsUsed.map((tool) => (
-          <span
-            key={tool}
-            className="px-2.5 py-0.5 text-xs font-light"
-            style={{
-              color: "var(--text-primary)",
-              backgroundColor: "var(--bg-button)",
-              borderRadius: "var(--outer-radius)",
-              border: "var(--thin-border)",
-            }}
-          >
-            {tool}
-          </span>
-        ))}
-      </div>
-    </div>
+    </article>
   );
 }
