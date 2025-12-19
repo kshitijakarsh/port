@@ -93,7 +93,7 @@ export default function Projects() {
               return (
                 <motion.div
                   key={project.id}
-                  className="relative h-[320px]"
+                  className="relative h-80"
                   initial={false}
                   animate={
                     animateCards
