@@ -22,7 +22,7 @@
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.525.0",
     "motion": "^12.23.25",
-    "next": "^16.0.7",
+    "next": "16.0.10",
     "react": "^19.2.1",
     "react-activity-calendar": "^3.0.1",
     "react-day-picker": "^9.11.3",
