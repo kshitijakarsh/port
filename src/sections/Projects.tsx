@@ -5,34 +5,41 @@ export default function Projects() {
   const projects = getHomepageProjects();
 
   return (
-    <div className="px-2 sm:px-0">
-      <div className="bg-linear-to-r from-gray-300 via-gray-400 to-gray-300 inset-shadow w-full h-px mb-6"></div>
-
-      <div className="sm:flex sm:justify-center sm:gap-8">
-        <div className="flex flex-col gap-4 sm:gap-6">
-          <p className="text-lg sm:text-xl serif font-semibold">
-            Proof Of Work
+    <section className="w-full">
+      <div className="w-full h-px bg-linear-to-r from-transparent via-gray-300 to-transparent mb-10" />
+      <div className="mx-auto w-full max-w-5xl px-2 sm:px-4">
+        <div className="mb-6">
+          <p className="text-lg sm:text-xl serif font-semibold text-center sm:text-left">
+            Proof of Work
           </p>
+        </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 px-1 sm:px-2">
-            {projects.map((project) => (
-              <Card
-                key={project.id}
-                image={project.image}
-                title={project.title}
-                description={project.description}
-                techUsed={project.techUsed}
-                githubUrl={project.githubUrl}
-                liveUrl={project.liveUrl}
-                imageAlt={project.imageAlt}
-                backgroundColor={project.backgroundColor}
-              />
-            ))}
-          </div>
+        <div
+          className="
+            grid
+            grid-cols-1
+            sm:grid-cols-2
+            gap-4
+            sm:gap-6
+          "
+        >
+          {projects.map((project) => (
+            <Card
+              key={project.id}
+              image={project.image}
+              title={project.title}
+              description={project.description}
+              techUsed={project.techUsed}
+              githubUrl={project.githubUrl}
+              liveUrl={project.liveUrl}
+              imageAlt={project.imageAlt}
+              backgroundColor={project.backgroundColor}
+            />
+          ))}
         </div>
       </div>
 
-      <div className="bg-linear-to-r from-gray-300 via-gray-400 to-gray-300 inset-shadow w-full h-px mt-6"></div>
-    </div>
+      <div className="w-full h-px bg-linear-to-r from-transparent via-gray-300 to-transparent mt-10" />
+    </section>
   );
 }
