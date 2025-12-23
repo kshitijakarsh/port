@@ -8,7 +8,7 @@ export const CoverSection = () => {
         alt="cover image"
         fill
         className="object-cover"
-        priority
+        preload
       />
     </div>
   );
