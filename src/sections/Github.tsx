@@ -39,9 +39,13 @@ export interface ChartPoint {
 
 export default function Github() {
   const [chartData, setChartData] = useState<ChartPoint[]>([]);
+  const today = new Date();
+  const oneMonthBack = new Date(today);
+  oneMonthBack.setMonth(today.getMonth() - 1);
+
   const [dateRange, setDateRange] = useState<DateRange | undefined>({
-    from: new Date(2025, 5, 12),
-    to: new Date(2025, 6, 15),
+    from: oneMonthBack,
+    to: today,
   });
   const [showcalendar, setShowcalendar] = useState(false);
   const [visualMode, setVisualMode] = useState<"chart" | "heatmap">("heatmap");
