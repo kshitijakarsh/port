@@ -21,6 +21,9 @@ export interface Project {
   liveUrl: string;
   imageAlt?: string;
   backgroundColor?: string;
+  year: string;
+  field: string;
+  type: string;
 }
 
 /**

@@ -18,6 +18,9 @@ export const projects: readonly Project[] = [
     githubUrl: "https://github.com/kshitijakarsh/Dhairya",
     liveUrl: "https://dhairya-five.vercel.app/",
     backgroundColor: "#ffc9c9",
+    year: "2024",
+    field: "Full Stack",
+    type: "Personal Project",
   },
   {
     id: "elevance",
@@ -33,6 +36,9 @@ export const projects: readonly Project[] = [
     githubUrl: "https://github.com/kshitijakarsh/elevance",
     liveUrl: "https://elevance-web.vercel.app/",
     backgroundColor: "#ffd6a7",
+    year: "2024",
+    field: "AI",
+    type: "Personal Project",
   },
   {
     id: "codesblue",
@@ -47,6 +53,9 @@ export const projects: readonly Project[] = [
     githubUrl: "https://github.com/kshitijakarsh/codesblue",
     liveUrl: "https://www.codesblue.com/",
     backgroundColor: "#B3DBF4",
+    year: "2024",
+    field: "Web Dev",
+    type: "Client Work",
   },
 ] as const;
 

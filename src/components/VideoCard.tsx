@@ -19,6 +19,7 @@ export default function VideoCard({ videoSrc, videoType }: VideoCardProps) {
           muted
           loop
           playsInline
+          preload="auto"
         >
           <source src={videoSrc} type="video/mp4" />
         </video>
