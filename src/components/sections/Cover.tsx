@@ -10,15 +10,6 @@ export const CoverSection = () => {
         className="object-cover"
         preload
       />
-      <div className="absolute -bottom-5 left-5">
-        <Image
-          src="/codesblue.svg"
-          alt="logo"
-          width={128}
-          height={128}
-          className="relative z-10"
-        />
-      </div>
     </div>
   );
 };
