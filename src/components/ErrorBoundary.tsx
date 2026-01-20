@@ -12,10 +12,6 @@ interface State {
   error: Error | null;
 }
 
-/**
- * Error Boundary component to catch and handle React errors gracefully
- * Prevents the entire app from crashing when a component throws an error
- */
 class ErrorBoundary extends Component<Props, State> {
   public state: State = {
     hasError: false,
@@ -42,42 +38,27 @@ class ErrorBoundary extends Component<Props, State> {
 
       return (
         <div
-          className="flex flex-col items-center justify-center min-h-screen p-4"
-          style={{
-            backgroundColor: "var(--background)",
-            color: "var(--text-primary)",
-          }}
+          className="flex flex-col items-center justify-center min-h-screen p-4 bg-background text-foreground"
         >
           <div
-            className="max-w-md w-full p-6 text-center"
-            style={{
-              backgroundColor: "var(--bg-card)",
-              borderRadius: "var(--outer-radius)",
-              border: "var(--thin-border)",
-            }}
+            className="max-w-md w-full p-6 text-center bg-card rounded-3xl border border-border"
           >
             <h1 className="text-2xl font-semibold mb-4">
               Oops! Something went wrong
             </h1>
-            <p className="text-sm mb-6" style={{ color: "var(--text-muted)" }}>
+            <p className="text-sm mb-6 text-muted-foreground">
               We&apos;re sorry for the inconvenience. An unexpected error has
               occurred.
             </p>
             {process.env.NODE_ENV === "development" && this.state.error && (
               <details className="mb-6 text-left">
                 <summary
-                  className="cursor-pointer text-sm font-medium mb-2"
-                  style={{ color: "var(--text-secondary)" }}
+                  className="cursor-pointer text-sm font-medium mb-2 text-muted-foreground"
                 >
                   Error details
                 </summary>
                 <pre
-                  className="text-xs p-4 overflow-auto"
-                  style={{
-                    backgroundColor: "var(--bg-code)",
-                    borderRadius: "var(--radius-md)",
-                    color: "var(--text-code)",
-                  }}
+                  className="text-xs p-4 overflow-auto bg-muted rounded-md text-muted-foreground"
                 >
                   {this.state.error.toString()}
                 </pre>
@@ -85,13 +66,7 @@ class ErrorBoundary extends Component<Props, State> {
             )}
             <button
               onClick={this.handleReset}
-              className="px-4 py-2 text-sm font-medium transition-opacity hover:opacity-80"
-              style={{
-                backgroundColor: "var(--bg-button)",
-                color: "var(--text-primary)",
-                borderRadius: "var(--outer-radius)",
-                border: "var(--thin-border)",
-              }}
+              className="px-4 py-2 text-sm font-medium transition-opacity hover:opacity-80 bg-primary text-primary-foreground rounded-3xl border border-border"
             >
               Try again
             </button>

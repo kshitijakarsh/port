@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Instrument_Serif, Manrope } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { ThemeProvider } from "next-themes";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -30,9 +31,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} ${instrumentSerif.variable} bg-[repeating-linear-gradient(45deg,#e5e7eb_0px,#e5e7eb_1px,transparent_1px,transparent_8px)]` }>
-        {children}
-        <Analytics />
+      <body
+        className={`${manrope.variable} ${instrumentSerif.variable} bg-[repeating-linear-gradient(45deg,#e5e7eb_0px,#e5e7eb_1px,transparent_1px,transparent_8px)] dark:bg-[radial-gradient(#3f3f46_1px,transparent_1px)] dark:bg-size-[16px_16px]`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+        >
+          {children}
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );
