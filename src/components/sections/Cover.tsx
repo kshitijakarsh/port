@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import Button from "../Button";
 
 export const CoverSection = () => {
   const { resolvedTheme } = useTheme();
@@ -17,7 +18,7 @@ export const CoverSection = () => {
   }
 
   return (
-    <div className="relative w-full h-64 flex items-center justify-center mb-16 sm:mb-20">
+    <div className="relative w-full h-64 flex items-center justify-center mb-8 sm:mb-12">
       <Image
         src={
           resolvedTheme === "dark"
@@ -30,7 +31,7 @@ export const CoverSection = () => {
         preload
       />
 
-      <div className="absolute -bottom-16 left-6 sm:left-10 h-32 w-32 rounded-2xl border-4 border-background shadow-xl overflow-hidden bg-muted">
+      <div className="absolute -bottom-16 left-6 sm:left-10 h-32 w-32 rounded-2xl border-4 border-muted shadow-xl overflow-hidden">
         <Image
           src={
             resolvedTheme === "dark"

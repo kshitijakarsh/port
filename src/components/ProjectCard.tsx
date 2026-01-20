@@ -5,7 +5,7 @@ type CardProps = Omit<Project, "id">;
 
 export default function ProjectCard(props: CardProps) {
   return (
-    <div className="group flex flex-col gap-4 p-4 rounded-3xl bg-transparent border border-neutral-200 transition-all duration-300 hover:shadow-sm hover:border-neutral-300 hover:bg-neutral-50/50">
+    <div className="group flex flex-col gap-4 p-4 rounded-3xl bg-transparent border border-neutral-200 transition-all duration-300 hover:shadow-sm hover:border-neutral-300">
       <div className="w-full bg-neutral-100 rounded-2xl overflow-hidden">
         <Image
           src={props.image}

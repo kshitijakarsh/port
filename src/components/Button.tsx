@@ -1,5 +1,9 @@
 type ButtonProps = {
-  text: string;
+  text?: string;
+  children?: React.ReactNode;
+  variant?: "default" | "social";
+  href?: string;
+  className?: string;
 };
 
 const customStyles: Record<string, string> = {
@@ -8,27 +12,41 @@ const customStyles: Record<string, string> = {
   "hide calendar": "border-1 border-amber-400",
 };
 
-export default function Button({ text }: ButtonProps) {
-  const key = text.toLowerCase();
+export default function Button({ text, children, variant = "default", href, className = "" }: ButtonProps) {
+  const label = text || (typeof children === "string" ? children : "");
+  const key = label.toLowerCase();
 
-  const baseStyles =
+  const socialStyles =
+    "flex justify-center items-center gap-2 font-sans text-xs bg-muted text-muted-foreground hover:text-foreground transition-colors px-2 py-1 rounded-sm outline-1 outline-border outline-offset-2";
+
+  const defaultStyles =
     "inline text-xs px-2 py-1 shadow-[inset_0_-2px_4px_rgba(255,165,0,0.5)] rounded-md serif tracking-wide hover:shadow-[inset_0_0px_4px_rgba(255,165,0,0.5)]";
 
+  const variantStyles = variant === "social" ? socialStyles : defaultStyles;
   const computedStyles = customStyles[key] || "";
 
-  const isDownload = key === "download resume";
+  const content = children || text;
 
-  if (isDownload) {
+  const isDownload = key === "download resume";
+  const isLink = !!href || isDownload;
+
+  if (isLink) {
     return (
       <a
-        href="/Kshitij_Akarsh.pdf"
-        download
-        className={`${baseStyles} ${computedStyles}`}
+        href={href}
+        download={isDownload && !href}
+        target={href ? "_blank" : undefined}
+        rel={href ? "noopener noreferrer" : undefined}
+        className={`${variantStyles} ${computedStyles} ${className}`}
       >
-        {text}
+        {content}
       </a>
     );
   }
 
-  return <button className={`${baseStyles} ${computedStyles}`}>{text}</button>;
+  return (
+    <button className={`${variantStyles} ${computedStyles} ${className}`}>
+      {content}
+    </button>
+  );
 }
