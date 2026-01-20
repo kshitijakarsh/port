@@ -6,7 +6,7 @@ import { Project } from "@/types";
 export const projects: readonly Project[] = [
   {
     id: "dhairya",
-    image: "./dhairya.svg",
+    image: "https://cdn.jsdelivr.net/gh/kshitijakarsh/port@assets/public/dhairya.svg",
     title: "Dhairya",
     description:
       "A full-featured gym management platform offering revenue tracking, user attendance monitoring",
@@ -24,7 +24,7 @@ export const projects: readonly Project[] = [
   },
   {
     id: "elevance",
-    image: "./elevance.svg",
+    image: "https://cdn.jsdelivr.net/gh/kshitijakarsh/port@assets/public/elevance.svg",
     title: "Elevance",
     description:
       "An AI-powered career platform that analyzes resumes to recommend relevant jobs, simulate interview round",
@@ -42,7 +42,7 @@ export const projects: readonly Project[] = [
   },
   {
     id: "codesblue",
-    image: "./codesblue.svg",
+    image: "https://cdn.jsdelivr.net/gh/kshitijakarsh/port@assets/public/codesblue.svg",
     title: "CodesBlue",
     description:
       "Agency website to onboard people and give an overview of services offered",

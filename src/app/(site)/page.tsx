@@ -1,9 +1,9 @@
-import About from "@/sections/About";
-import { CoverSection } from "@/sections/Cover";
-import Projects from "@/sections/Projects";
-import RecentBlog from "@/sections/RecentBlogs";
+import About from "@/components/sections/About";
+import { CoverSection } from "@/components/sections/Cover";
+import Projects from "@/components/sections/Projects";
+import RecentBlog from "@/components/sections/RecentBlogs";
 import { GradientText } from "@/components/ui/shadcn-io/gradient-text";
-import Github from "@/sections/Github";
+import Github from "@/components/sections/Github";
 import Button from "@/components/Button";
 
 export default function Home() {

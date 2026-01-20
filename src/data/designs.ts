@@ -6,7 +6,7 @@ import { Design } from "@/types";
 export const designs: readonly Design[] = [
   {
     id: "music-player",
-    videoSrc: "./des1.mp4",
+    videoSrc: "https://cdn.jsdelivr.net/gh/kshitijakarsh/port@assets/public/des1.mp4",
     title: "A Music Player",
     description:
       "A minimal music player app design for phones, featuring album art, playback controls, and smooth animations.",
@@ -15,7 +15,7 @@ export const designs: readonly Design[] = [
   },
   {
     id: "domain-registry-landing",
-    videoSrc: "./des2.mp4",
+    videoSrc: "https://cdn.jsdelivr.net/gh/kshitijakarsh/port@assets/public/des2.mp4",
     title: "Landing Page for a Domain Registry",
     description:
       "A sleek landing page design showcasing domain search, pricing, and extensions with a modern, intuitive layout.",
@@ -24,7 +24,7 @@ export const designs: readonly Design[] = [
   },
   {
     id: "stash-bento",
-    videoSrc: "./Stash.mp4",
+    videoSrc: "https://cdn.jsdelivr.net/gh/kshitijakarsh/port@assets/public/Stash.mp4",
     title: "Bento Card",
     description:
       "A bento-style card layout that highlights key product features in a clear, visually structured format.",
@@ -33,7 +33,7 @@ export const designs: readonly Design[] = [
   },
   {
     id: "codes-blue-mock",
-    videoSrc: "./CodesBlueMock.mp4",
+    videoSrc: "https://cdn.jsdelivr.net/gh/kshitijakarsh/port@assets/public/CodesBlueMock.mp4",
     title: "CodesBlue Mock Landing Page",
     description:
       "A conceptual landing page for CodesBlue showcasing a modern UI approach with an emphasis on clarity, spacing, and feature-driven content.",

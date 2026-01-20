@@ -1,5 +1,5 @@
 import Link from "next/link";
-import blog1 from "../../blogs/blog1.json";
+import blog1 from "../../../blogs/blog1.json";
 
 const blogs = [blog1];
 

@@ -28,16 +28,10 @@ export const routes: readonly Route[] = [
   },
 ] as const;
 
-/**
- * Get route paths array
- */
 export const getRoutePaths = (): readonly string[] => {
   return routes.map((route) => route.path);
 };
 
-/**
- * Get route icons array
- */
 export const getRouteIcons = () => {
   return routes.map((route) => route.icon);
 };
