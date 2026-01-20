@@ -12,9 +12,9 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="relative w-full px-4 sm:px-8 md:px-12 lg:px-16 py-2 border border-border outline-1 outline-border outline-offset-2 rounded-sm">
+    <nav className="relative w-full px-2 sm:px-4 md:px-4 lg:px-4 py-2 border border-border outline-1 outline-border outline-offset-2 rounded-sm">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl text-foreground font-serif">Kshitij Akarsh</h1>
+        <h1 className="text-sm sm:text-3xl text-foreground font-serif">Kshitij Akarsh</h1>
         <div className="bg-muted flex gap-4 px-2 py-1 rounded-sm outline-1 outline-border outline-offset-2 items-center">
           <button
             className="font-sans text-xs bg-background p-1 rounded-sm shadow-sm border border-border/50"

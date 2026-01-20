@@ -10,20 +10,8 @@ import Navbar from "@/components/home/Navbar";
 export default function Home() {
   return (
     <div className="flex w-full bg-background min-h-screen text-foreground">
-      <div className="hidden sm:block w-px bg-border inset-shadow" />
-
-      <div className="flex-1 w-full">
+      <div className="flex-1 w-full sm:border-x sm:border-border">
         <div className="flex flex-col py-10 sm:flex-row justify-between sm:items-center gap-4 w-full px-0.5">
-          {/* <GradientText
-            text="Kshitij Akarsh"
-            gradient="linear-gradient(90deg, #fcd34d 0%, #f59e0b 50%, #f97316 100%)"
-            className="serif text-3xl sm:text-4xl text-center mt-10 mb-2 sm:mb-10"
-          />
-
-          <div className="hidden sm:flex justify-end">
-            <Button text="Download Resume" />
-          </div> */}
-
           <Navbar />
         </div>
         <div className="flex justify-center">
@@ -36,7 +24,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="hidden sm:block w-px bg-border inset-shadow" />
     </div>
   );
 }
