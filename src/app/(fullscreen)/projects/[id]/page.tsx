@@ -13,7 +13,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
     }
 
     return (
-        <main className="h-screen bg-background text-foreground relative overflow-hidden font-sans selection:bg-foreground py-16 px-4 md:px-8">
+        <main className="h-screen bg-background text-foreground relative overflow-hidden font-sans selection:bg-foreground selection:text-black py-16 px-4 md:px-8">
             {/* Background Grid Lines */}
             <div className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"></div>
 
@@ -39,18 +39,18 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                                 </p>
                             </div>
 
-                            <div className="grid grid-cols-2 gap-x-12 gap-y-8 max-w-sm">
+                            <div className="gap-x-12 gap-y-8 max-w-sm">
                                 <div className="space-y-1.5">
                                     <p className="text-[10px] uppercase tracking-tighter font-bold text-muted-foreground/40 font-fragment">Year</p>
                                     <p className="text-sm font-medium tracking-tight uppercase">{project.year}</p>
                                 </div>
 
-                                <div className="space-y-1.5">
+                                <div className="space-y-1.5 mt-2">
                                     <p className="text-[10px] uppercase tracking-tighter font-bold text-muted-foreground/40 font-fragment">Field</p>
                                     <p className="text-xs font-medium uppercase tracking-tighter font-fragment text-emerald-400">[{project.field}]</p>
                                 </div>
 
-                                <div className="space-y-1.5 col-span-2">
+                                <div className="space-y-1.5 mt-2">
                                     <p className="text-[10px] tracking-tighter font-bold text-muted-foreground/40 font-fragment uppercase">Technologies</p>
                                     <div className="flex flex-wrap gap-x-4 gap-y-1">
                                         {project.techUsed.map((tech) => (
@@ -74,7 +74,6 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                         </div>
                     </div>
 
-                    {/* Right Side: Image */}
                     <div className="lg:col-span-9 h-full flex items-center justify-center p-4 lg:p-0">
                         <div className="relative h-[80vh] w-full">
                             <Image
