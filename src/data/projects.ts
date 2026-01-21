@@ -5,7 +5,7 @@ import { Project } from "@/types";
  */
 export const projects: readonly Project[] = [
   {
-    id: "dhairya",
+    id: "1",
     image: "https://cdn.jsdelivr.net/gh/kshitijakarsh/port@assets/public/dhairya.svg",
     title: "Dhairya",
     description:
@@ -23,7 +23,7 @@ export const projects: readonly Project[] = [
     type: "Personal Project",
   },
   {
-    id: "elevance",
+    id: "2",
     image: "https://cdn.jsdelivr.net/gh/kshitijakarsh/port@assets/public/elevance.svg",
     title: "Elevance",
     description:
@@ -41,7 +41,7 @@ export const projects: readonly Project[] = [
     type: "Personal Project",
   },
   {
-    id: "codesblue",
+    id: "3",
     image: "https://cdn.jsdelivr.net/gh/kshitijakarsh/port@assets/public/codesblue.svg",
     title: "CodesBlue",
     description:

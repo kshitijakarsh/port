@@ -1,9 +1,12 @@
+import Link from "next/link";
+
 type ButtonProps = {
   text?: string;
   children?: React.ReactNode;
   variant?: "default" | "social";
   href?: string;
   className?: string;
+  onClick?: () => void;
 };
 
 const customStyles: Record<string, string> = {
@@ -12,7 +15,7 @@ const customStyles: Record<string, string> = {
   "hide calendar": "border-1 border-amber-400",
 };
 
-export default function Button({ text, children, variant = "default", href, className = "" }: ButtonProps) {
+export default function Button({ text, children, variant = "default", href, className = "", onClick }: ButtonProps) {
   const label = text || (typeof children === "string" ? children : "");
   const key = label.toLowerCase();
 
@@ -31,6 +34,20 @@ export default function Button({ text, children, variant = "default", href, clas
   const isLink = !!href || isDownload;
 
   if (isLink) {
+    const isInternal = href?.startsWith("/") || href?.startsWith("#");
+
+    if (isInternal && href) {
+      return (
+        <Link
+          href={href}
+          className={`${variantStyles} ${computedStyles} ${className}`}
+          onClick={onClick}
+        >
+          {content}
+        </Link>
+      );
+    }
+
     return (
       <a
         href={href}
@@ -38,6 +55,7 @@ export default function Button({ text, children, variant = "default", href, clas
         target={href ? "_blank" : undefined}
         rel={href ? "noopener noreferrer" : undefined}
         className={`${variantStyles} ${computedStyles} ${className}`}
+        onClick={onClick}
       >
         {content}
       </a>
@@ -45,7 +63,10 @@ export default function Button({ text, children, variant = "default", href, clas
   }
 
   return (
-    <button className={`${variantStyles} ${computedStyles} ${className}`}>
+    <button
+      className={`${variantStyles} ${computedStyles} ${className}`}
+      onClick={onClick}
+    >
       {content}
     </button>
   );

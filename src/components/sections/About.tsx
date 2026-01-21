@@ -48,6 +48,7 @@ export default function About() {
 
       <div className="flex gap-2.5 mt-4">
         <Tooltip
+          side="bottom"
           content={
             <div className="w-64 bg-white dark:bg-zinc-950 border border-border/50 rounded-xl overflow-hidden shadow-xl">
               <div className="h-16 bg-[#0077b5] w-full relative">
@@ -79,6 +80,7 @@ export default function About() {
 
         {/* GitHub Profile Card */}
         <Tooltip
+          side="bottom"
           content={
             <div className="w-64 bg-white dark:bg-zinc-950 border border-border/50 rounded-xl overflow-hidden shadow-xl">
               <div className="h-16 bg-[#24292e] w-full relative flex items-center justify-end px-4">
@@ -119,6 +121,7 @@ export default function About() {
 
         {/* X Profile Card */}
         <Tooltip
+          side="bottom"
           content={
             <div className="w-64 bg-white dark:bg-zinc-950 border border-border/50 rounded-xl overflow-hidden shadow-xl">
               <div className="h-16 bg-black w-full relative flex items-center justify-end px-4">

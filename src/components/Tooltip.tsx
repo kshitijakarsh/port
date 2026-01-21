@@ -6,11 +6,14 @@ import { AnimatePresence, motion } from "framer-motion";
 interface TooltipProps {
     content: React.ReactNode;
     children: React.ReactNode;
-    className?: string; // Allow overriding container styles
+    className?: string;
+    side?: "top" | "bottom";
 }
 
-export default function Tooltip({ content, children, className }: TooltipProps) {
+export default function Tooltip({ content, children, className, side = "top" }: TooltipProps) {
     const [isVisible, setIsVisible] = useState(false);
+
+    const isTop = side === "top";
 
     return (
         <div
@@ -21,18 +24,18 @@ export default function Tooltip({ content, children, className }: TooltipProps) 
             <AnimatePresence>
                 {isVisible && (
                     <motion.div
-                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                        initial={{ opacity: 0, y: isTop ? 10 : -10, scale: 0.95, x: "-50%" }}
+                        animate={{ opacity: 1, y: 0, scale: 1, x: "-50%" }}
+                        exit={{ opacity: 0, y: isTop ? 10 : -10, scale: 0.95, x: "-50%" }}
                         transition={{ duration: 0.15, ease: "easeOut" }}
-                        className="absolute -top-12 left-1/2 -translate-x-1/2 z-50 pointer-events-none"
+                        className={`absolute left-1/2 z-50 pointer-events-none ${isTop ? "-top-12" : "top-full mt-2"
+                            }`}
                     >
-                        {/* We remove default styles to allow full custom rendering of the "header" cards */}
                         <div className={`shadow-xl rounded-lg overflow-hidden ${className}`}>
                             {content}
                         </div>
-                        {/* Simple arrow - optional, maybe remove if cards are large */}
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-black/20" />
+                        <div className={`absolute left-1/2 -translate-x-1/2 border-4 border-transparent ${isTop ? "top-full border-t-black/20" : "bottom-full border-b-black/20"
+                            }`} />
                     </motion.div>
                 )}
             </AnimatePresence>
