@@ -47,14 +47,11 @@ export default function About() {
       </p>
 
       <div className="flex gap-2.5 mt-4">
-        {/* LinkedIn Profile Card */}
         <Tooltip
           content={
             <div className="w-64 bg-white dark:bg-zinc-950 border border-border/50 rounded-xl overflow-hidden shadow-xl">
-              {/* Banner */}
               <div className="h-16 bg-[#0077b5] w-full relative">
               </div>
-              {/* Profile Info */}
               <div className="px-4 pb-4 -mt-8 relative">
                 <div className="w-16 h-16 rounded-full border-4 border-white dark:border-zinc-950 overflow-hidden bg-muted relative">
                   <Image src="/profile.jpg" alt="Kshitij" fill className="object-cover" />

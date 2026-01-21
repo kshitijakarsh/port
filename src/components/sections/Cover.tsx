@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import Button from "../Button";
 
 export const CoverSection = () => {
   const { resolvedTheme } = useTheme();
@@ -22,7 +21,7 @@ export const CoverSection = () => {
       <Image
         src={
           resolvedTheme === "dark"
-            ? "/cover_dark.png"
+            ? "https://cdn.jsdelivr.net/gh/kshitijakarsh/port@assets/public/cover_dark.png"
             : "https://cdn.jsdelivr.net/gh/kshitijakarsh/port@assets/public/cover.jpg"
         }
         alt="cover image"
@@ -35,8 +34,8 @@ export const CoverSection = () => {
         <Image
           src={
             resolvedTheme === "dark"
-              ? "/profile.jpg"
-              : "/profile_light.jpg"
+              ? "https://cdn.jsdelivr.net/gh/kshitijakarsh/port@assets/public/profile.jpg"
+              : "https://cdn.jsdelivr.net/gh/kshitijakarsh/port@assets/public/profile_light.jpg"
           }
           alt="profile picture"
           fill

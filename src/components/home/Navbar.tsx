@@ -1,10 +1,11 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
-import { useState } from "react";
+import { Download, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
+  const router = useRouter();
   const { theme, setTheme } = useTheme()
 
   const changeTheme = () => {
@@ -22,14 +23,28 @@ export default function Navbar() {
           >
             {theme === "light" ? <Moon size={12} /> : <Sun size={12} />}
           </button>
-          <button className="font-sans text-xs text-muted-foreground hover:text-foreground transition-colors">
-            About
-          </button>
-          <button className="font-sans text-xs text-muted-foreground hover:text-foreground transition-colors">
+          <button className="font-sans text-xs text-muted-foreground hover:text-foreground transition-colors"
+            onClick={() => {
+              router.push("/projects");
+            }}>
             Projects
           </button>
-          <button className="font-sans text-xs text-muted-foreground hover:text-foreground transition-colors">
-            Design
+          <button className="font-sans text-xs text-muted-foreground hover:text-foreground transition-colors"
+            onClick={() => {
+              router.push("/designs");
+            }}>
+            Designs
+          </button>
+          <button
+            className="flex gap-1 items-center justify-center font-sans text-xs text-muted-foreground hover:text-foreground transition-colors"
+            onClick={() => {
+              const link = document.createElement("a");
+              link.href = "/Kshitij_Akarsh.pdf";
+              link.download = "Kshitij_Akarsh_Resume.pdf";
+              link.click();
+            }}
+          >
+            <Download size={12} /> Resume
           </button>
         </div>
       </div>
