@@ -79,7 +79,7 @@ export default function Github() {
             headers: {
               Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
             },
-          }
+          },
         );
 
         const calendar =
@@ -90,7 +90,7 @@ export default function Github() {
             week.contributionDays.map((day) => ({
               date: day.date,
               contributions: day.contributionCount,
-            }))
+            })),
         );
 
         setChartData(flat);
@@ -115,13 +115,15 @@ export default function Github() {
           Github Contributions
         </h1>
 
-        <div className="flex items-center gap-1 outline outline-offset-2 outline-amber-400 rounded-md mx-auto sm:mx-0">
+        <div className="flex items-center gap-1 rounded-md mx-auto sm:mx-0">
           <div onClick={() => setVisualMode("heatmap")}>
-            <Button text="Heatmap" />
+            <Button variant="social" text="Heatmap" />
           </div>
-          <div className="self-stretch w-px bg-amber-400"></div>
+
+          <div className="self-stretch w-px bg-muted mx-1" />
+
           <div onClick={() => setVisualMode("chart")}>
-            <Button text="Chart" />
+            <Button variant="social" text="Chart" />
           </div>
         </div>
       </div>

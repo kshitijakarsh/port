@@ -26,7 +26,7 @@ export default function Projects() {
           />
         ))}
       </div>
-      <div className="w-full flex justify-center pt-4">
+      <div className="w-full flex justify-start px-2 pt-4">
         <Button variant="social" href="/projects">See More</Button>
       </div>
     </section>

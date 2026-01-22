@@ -13,9 +13,9 @@ export default function RecentBlog() {
             <Link
               key={blog.id}
               href={`/blogs/${blog.id}`}
-              className="flex justify-between items-center py-4 border-b border-gray-200 hover:border-gray-400 transition-colors duration-200 cursor-pointer"
+              className="flex justify-between items-center py-4 border-b border-muted transition-colors duration-200 cursor-pointer"
             >
-              <p className="text-md">{blog.title}</p>
+              <p className="text-md font-sans tracking-tight">{blog.title}</p>
               <p className="text-sm text-gray-600">{blog.date}</p>
             </Link>
           ))}

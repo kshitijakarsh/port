@@ -14,9 +14,6 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
 
     return (
         <main className="h-screen bg-background text-foreground relative overflow-hidden font-sans selection:bg-foreground selection:text-black py-16 px-4 md:px-8">
-            {/* Background Grid Lines */}
-            <div className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"></div>
-
             <div className="relative z-10 w-full h-full">
                 <Button
                     variant="social"
@@ -61,6 +58,8 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                             </div>
                         </div>
 
+                        
+
                         <div className="space-y-4 pt-8">
                             <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-muted-foreground/40 font-fragment">Connections</p>
                             <div className="flex gap-4">
@@ -74,7 +73,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                         </div>
                     </div>
 
-                    <div className="lg:col-span-9 h-full flex items-center justify-center p-4 lg:p-0">
+                    <div className="border-l border-border dark:border-border lg:col-span-9 h-full flex items-center justify-center p-4 lg:px-2">
                         <div className="relative h-[80vh] w-full">
                             <Image
                                 src={project.image}
