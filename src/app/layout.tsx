@@ -36,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${manrope.variable} ${instrumentSerif.variable} ${fragment.variable} bg-[repeating-linear-gradient(45deg,#e5e7eb_0px,#e5e7eb_1px,transparent_1px,transparent_8px)] dark:bg-[radial-gradient(#3f3f46_1px,transparent_1px)] dark:bg-size-[16px_16px]`}
       >
