@@ -6,6 +6,7 @@ import { GradientText } from "@/components/ui/shadcn-io/gradient-text";
 import Github from "@/components/sections/Github";
 import Button from "@/components/Button";
 import Navbar from "@/components/home/Navbar";
+import WorkExp from "@/components/sections/WorkExp";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
           <div className="flex flex-col gap-6 w-full max-w-4xl">
             <CoverSection />
             <About />
+            <WorkExp />
             <Projects />
             <RecentBlog />
             <Github />

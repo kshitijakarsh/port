@@ -1,14 +1,10 @@
-'use client'
-
 import { Project } from "@/types";
 import Image from "next/image";
 import Button from "./Button";
 import { MoveUpRight } from "lucide-react";
-import { useRouter } from "next/navigation";
 
 
-export default function ProjectCard(props: Project ) {
-  const router = useRouter();
+export default function ProjectCard(props: Project) {
   return (
     <div className="group flex flex-col gap-4 bg-transparent transition-all duration-300">
       <div className="w-full overflow-hidden">
@@ -19,6 +15,7 @@ export default function ProjectCard(props: Project ) {
           height={0}
           sizes="100vw"
           className="w-full h-auto object-contain"
+          priority
         />
 
 
@@ -31,9 +28,9 @@ export default function ProjectCard(props: Project ) {
               {props.title}
             </h3>
 
-            <Button variant="social" onClick={() => {
-              router.push(`/projects/${props.id}`);
-            }}><MoveUpRight size={10} /></Button>
+            <Button variant="social" href={`/projects/${props.id}`}>
+              <MoveUpRight size={10} />
+            </Button>
           </div>
           <p className="text-sm text-neutral-500 line-clamp-2 leading-relaxed">
             {props.description}

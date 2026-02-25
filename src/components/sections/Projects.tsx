@@ -7,6 +7,7 @@ export default function Projects() {
 
   return (
     <section className="w-full px-4 sm:px-4 border-t-2 border-b-2 border-double py-6">
+      <h1 className="font-serif text-xl pb-4">Projects</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
         {projects.map((project) => (
           <ProjectCard
@@ -26,7 +27,7 @@ export default function Projects() {
           />
         ))}
       </div>
-      <div className="w-full flex justify-start px-2 pt-4">
+      <div className="w-full flex justify-center px-2 pt-4">
         <Button variant="social" href="/projects">See More</Button>
       </div>
     </section>
