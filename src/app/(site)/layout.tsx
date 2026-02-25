@@ -11,7 +11,7 @@ export default function SiteLayout({
       <div className="max-w-3xl mx-auto w-full mb-22 sm:mb-0">
         <div className="flex">
           {/* <Sidebar /> */}
-          <main className="flex-1 w-full bg-white">{children}</main>
+          <main className="flex-1 w-full bg-background text-foreground">{children}</main>
         </div>
       </div>
     </ErrorBoundary>

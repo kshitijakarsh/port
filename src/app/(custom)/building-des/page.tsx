@@ -74,7 +74,7 @@ export default function DesignShowcase() {
       <AnimatePresence>
         {!introDone && (
           <motion.div
-            className="absolute inset-0 z-50 flex items-center justify-center bg-white"
+            className="absolute inset-0 z-50 flex items-center justify-center bg-background text-foreground"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
@@ -150,7 +150,7 @@ export default function DesignShowcase() {
 
               <div>
                 <h1 className="text-lg font-medium">{video.title}</h1>
-                <p className="text-sm text-neutral-600">{video.description}</p>
+                <p className="text-sm text-muted-foreground">{video.description}</p>
               </div>
             </div>
           ))}

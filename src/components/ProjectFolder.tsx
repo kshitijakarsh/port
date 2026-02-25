@@ -36,40 +36,41 @@ export default function ProjectFolder({ isOpen, onClick}: ProjectFolderProps) {
                 transition={{ duration: 0.3 }}
               >
                 <div
-                  className="absolute w-24 h-16 bg-white rounded-lg shadow-lg transform rotate-6"
+                  className="absolute w-24 h-16 bg-card rounded-lg shadow-lg transform rotate-6"
                   style={{
-                    background: "linear-gradient(to bottom, #f9fafb, #e5e7eb)",
+                    background: "linear-gradient(to bottom, var(--card), var(--muted))",
                     top: "20%",
                     left: "15%",
                   }}
                 >
                   <div className="p-2 space-y-1">
-                    <div className="h-0.5 bg-gray-300 rounded w-3/4"></div>
-                    <div className="h-0.5 bg-gray-300 rounded w-1/2"></div>
+                    <div className="h-0.5 bg-border rounded w-3/4"></div>
+                    <div className="h-0.5 bg-border rounded w-1/2"></div>
                   </div>
                 </div>
 
                 {/* FILE 2 - Middle */}
                 <div
-                  className="absolute w-24 h-16 bg-white rounded-lg shadow-lg transform -rotate-3"
+                  className="absolute w-24 h-16 bg-card rounded-lg shadow-lg transform -rotate-3"
                   style={{
-                    background: "linear-gradient(to bottom, #f9fafb, #e5e7eb)",
+                    background: "linear-gradient(to bottom, var(--card), var(--muted))",
                     top: "30%",
                     left: "50%",
                     transform: "translateX(-50%) rotate(-3deg)",
                   }}
                 >
                   <div className="p-2 space-y-1">
-                    <div className="h-0.5 bg-gray-300 rounded w-2/3"></div>
-                    <div className="h-0.5 bg-gray-300 rounded w-3/4"></div>
+                    <div className="h-0.5 bg-border rounded w-2/3"></div>
+                    <div className="h-0.5 bg-border rounded w-3/4"></div>
                   </div>
                 </div>
 
                 {/* FILE 3 - Front */}
                 <motion.div
-                  className="absolute w-24 h-16 bg-white rounded-lg shadow-xl"
+                  className="absolute w-24 h-16 bg-card rounded-lg shadow-xl"
                   style={{
-                    background: "linear-gradient(to bottom, #ffffff, #f3f4f6)",
+                    background:
+                      "linear-gradient(to bottom, var(--card), var(--secondary))",
                     top: "40%",
                     right: "15%",
                   }}
@@ -77,9 +78,9 @@ export default function ProjectFolder({ isOpen, onClick}: ProjectFolderProps) {
                   transition={{ duration: 0.3 }}
                 >
                   <div className="p-2 space-y-1">
-                    <div className="h-0.5 bg-gray-400 rounded w-full"></div>
-                    <div className="h-0.5 bg-gray-400 rounded w-4/5"></div>
-                    <div className="h-0.5 bg-gray-400 rounded w-3/5"></div>
+                    <div className="h-0.5 bg-muted-foreground/50 rounded w-full"></div>
+                    <div className="h-0.5 bg-muted-foreground/50 rounded w-4/5"></div>
+                    <div className="h-0.5 bg-muted-foreground/50 rounded w-3/5"></div>
                   </div>
                 </motion.div>
               </motion.div>

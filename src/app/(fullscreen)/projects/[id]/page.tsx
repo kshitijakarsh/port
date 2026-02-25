@@ -13,11 +13,11 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
     }
 
     return (
-        <main className="h-screen bg-background text-foreground relative overflow-hidden font-sans selection:bg-foreground selection:text-black py-16 px-4 md:px-8">
+        <main className="h-screen bg-background text-foreground relative overflow-hidden font-sans selection:bg-foreground selection:text-background py-16 px-4 md:px-8">
             <div className="relative z-10 w-full h-full">
                 <Button
                     variant="social"
-                    href="/"
+                    href="/projects"
                     className="fixed top-8 left-8 z-50 rounded-full"
                 >
                     <MoveLeft size={14} />
@@ -28,7 +28,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                     <div className="lg:col-span-3 flex flex-col justify-between h-full py-12">
                         <div className="space-y-12">
                             <div className="space-y-6">
-                                <h1 className="text-4xl md:text-5xl xl:text-7xl font-bold uppercase tracking-tighter leading-none font-fragment">
+                                <h1 className="text-3xl md:text-4xl xl:text-6xl font-bold uppercase tracking-tighter leading-none font-fragment">
                                     {project.title}
                                 </h1>
                                 <p className="text-md md:text-lg font-medium leading-relaxed tracking-tight text-foreground/80 font-fragment max-w-lg">
@@ -58,7 +58,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                             </div>
                         </div>
 
-                        
+
 
                         <div className="space-y-4 pt-8">
                             <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-muted-foreground/40 font-fragment">Connections</p>

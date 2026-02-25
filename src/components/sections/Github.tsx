@@ -109,9 +109,9 @@ export default function Github() {
   });
 
   return (
-    <div className="px-4 w-full">
+    <section className="px-4 w-full border-t-2 border-b-2 border-double py-6">
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
-        <h1 className="text-lg sm:text-xl serif font-semibold py-3 sm:py-4">
+        <h1 className="text-lg sm:text-xl serif font-semibold pb-3 sm:pb-4">
           Github Contributions
         </h1>
 
@@ -140,7 +140,7 @@ export default function Github() {
 
             {showcalendar && (
               <div className="absolute inset-0 z-20 flex items-start justify-center sm:justify-end pointer-events-none">
-                <div className="mt-8 rounded-lg border shadow-xl bg-white p-4 pointer-events-auto w-[95%] sm:w-auto">
+                <div className="mt-8 rounded-lg border border-border shadow-xl bg-popover text-popover-foreground p-4 pointer-events-auto w-[95%] sm:w-auto">
                   <Calendar
                     mode="range"
                     defaultMonth={dateRange?.from}
@@ -153,9 +153,8 @@ export default function Github() {
               </div>
             )}
             <div
-              className={`${
-                showcalendar ? "opacity-30 pointer-events-none" : ""
-              }`}
+              className={`${showcalendar ? "opacity-30 pointer-events-none" : ""
+                }`}
             >
               <GithubContributionChart data={filteredData} />
             </div>
@@ -166,6 +165,6 @@ export default function Github() {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 }

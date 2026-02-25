@@ -32,7 +32,7 @@ export default function ProjectCard(props: Project) {
               <MoveUpRight size={10} />
             </Button>
           </div>
-          <p className="text-sm text-neutral-500 line-clamp-2 leading-relaxed">
+          <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
             {props.description}
           </p>
         </div>

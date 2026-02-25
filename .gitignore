@@ -42,3 +42,4 @@ yarn-error.log*
 next-env.d.ts
 >>>>>>> 4ef177f (major revamp)
 todo.md
+.data/
