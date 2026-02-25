@@ -1,12 +1,13 @@
 import { Project } from "@/types";
 import Image from "next/image";
+import Button from "./Button";
+import { MoveUpRight } from "lucide-react";
 
-type CardProps = Omit<Project, "id">;
 
-export default function ProjectCard(props: CardProps) {
+export default function ProjectCard(props: Project) {
   return (
-    <div className="group flex flex-col gap-4 p-4 rounded-3xl bg-transparent border border-neutral-200 transition-all duration-300 hover:shadow-sm hover:border-neutral-300 hover:bg-neutral-50/50">
-      <div className="w-full bg-neutral-100 rounded-2xl overflow-hidden">
+    <div className="group flex flex-col gap-4 bg-transparent transition-all duration-300">
+      <div className="w-full overflow-hidden">
         <Image
           src={props.image}
           alt={props.imageAlt || props.title}
@@ -14,23 +15,24 @@ export default function ProjectCard(props: CardProps) {
           height={0}
           sizes="100vw"
           className="w-full h-auto object-contain"
+          priority
         />
+
+
       </div>
 
       <div className="flex flex-col gap-3 px-1">
-        <div className="flex items-center gap-2 text-xs font-medium text-neutral-500 whitespace-nowrap overflow-hidden">
-          <span>{props.year}</span>
-          <div className="w-1 h-1 rounded-full bg-neutral-300 shrink-0" />
-          <span>{props.field}</span>
-          <div className="w-1 h-1 rounded-full bg-neutral-300 shrink-0" />
-          <span>{props.type}</span>
-        </div>
+        <div className="flex flex-col gap-1 px-2">
+          <div className="flex justify-between">
+            <h3 className="text-xl font-serif leading-tight">
+              {props.title}
+            </h3>
 
-        <div className="flex flex-col gap-1">
-          <h3 className="text-xl font-serif text-neutral-900 leading-tight">
-            {props.title}
-          </h3>
-          <p className="text-sm text-neutral-600 line-clamp-2 leading-relaxed">
+            <Button variant="social" href={`/projects/${props.id}`}>
+              <MoveUpRight size={10} />
+            </Button>
+          </div>
+          <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
             {props.description}
           </p>
         </div>

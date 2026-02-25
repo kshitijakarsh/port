@@ -4,16 +4,6 @@ import { Copy } from "lucide-react";
 import { useState } from "react";
 import { COPY_FEEDBACK_DURATION } from "@/constants";
 
-/**
- * CodeBlock Component
- *
- * Displays code snippets with syntax highlighting and copy-to-clipboard functionality.
- * Shows visual feedback when code is copied.
- *
- * @param {Object} props - Component props
- * @param {string} props.content - The code content to display
- * @returns Code block with copy button
- */
 export default function CodeBlock({ content }: { content: string }) {
   const [copied, setCopied] = useState(false);
 
@@ -25,12 +15,7 @@ export default function CodeBlock({ content }: { content: string }) {
 
   return (
     <div
-      className="relative p-4 overflow-x-auto text-sm mb-6"
-      style={{
-        backgroundColor: "var(--bg-code)",
-        color: "var(--text-code)",
-        borderRadius: "var(--radius-md)",
-      }}
+      className="relative p-4 overflow-x-auto text-sm mb-6 bg-muted text-muted-foreground rounded-md"
     >
       <button
         onClick={handleCopy}

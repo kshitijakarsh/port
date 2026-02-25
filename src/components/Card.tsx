@@ -1,9 +1,7 @@
 import { Project } from "@/types";
 import ProjectCard from "./ProjectCard";
 
-type CardProps = Omit<Project, "id">;
-
-export default function Card(props: CardProps) {
+export default function Card(props: Project) {
   return (
     <div className="px-1 sm:px-2">
       <ProjectCard {...props} />

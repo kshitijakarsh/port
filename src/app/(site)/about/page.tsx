@@ -46,7 +46,7 @@ export default function About() {
           boundaries of what&apos;s possible in web development.
         </p>
 
-        <div className="mt-10 space-y-6 text-sm text-gray-800">
+        <div className="mt-10 space-y-6 text-sm text-foreground">
           <div>
             <p className="font-semibold mb-2">Resume</p>
             <a
@@ -67,7 +67,7 @@ export default function About() {
                 <p>Noida Institute of Engineering and Technology</p>
                 <p>B.Tech, Computer Science (Data Science)</p>
               </div>
-              <div className="md:text-right mt-2 md:mt-0 text-xs text-gray-600 md:w-1/2">
+              <div className="md:text-right mt-2 md:mt-0 text-xs text-muted-foreground md:w-1/2">
                 <p>Expected July 2027</p>
               </div>
             </div>

@@ -34,7 +34,7 @@ export default function Sidebar() {
   return (
     <>
       <nav
-        className="hidden md:flex sticky top-122 flex-col items-center py-4 bg-white rounded-2xl min-w-14 border border-amber-500"
+        className="hidden md:flex sticky top-122 flex-col items-center py-4 bg-card text-card-foreground rounded-2xl min-w-14 border border-border"
         aria-label="Main navigation"
         style={{
           boxShadow: "var(--shadow-sidebar)",
@@ -61,7 +61,7 @@ export default function Sidebar() {
               <button
                 key={route.id}
                 onClick={() => router.push(route.path)}
-                className="w-9 h-9 flex items-center justify-center transition hover:text-black"
+                className="w-9 h-9 flex items-center justify-center transition hover:text-foreground"
                 style={{
                   color:
                     activeIndex === index
@@ -88,7 +88,7 @@ export default function Sidebar() {
         aria-label="Main navigation"
       >
         <div
-          className="flex items-center py-2 px-4 bg-white rounded-3xl h-14 relative"
+          className="flex items-center py-2 px-4 bg-card text-card-foreground rounded-3xl h-14 relative border border-border"
           style={{ boxShadow: "var(--shadow-sidebar)" }}
         >
           {activeIndex !== -1 && (
@@ -114,7 +114,7 @@ export default function Sidebar() {
                     mobileRefs.current[index] = el;
                   }}
                   onClick={() => router.push(route.path)}
-                  className="w-9 h-9 flex items-center justify-center transition hover:text-black"
+                  className="w-9 h-9 flex items-center justify-center transition hover:text-foreground"
                   style={{
                     color:
                       activeIndex === index

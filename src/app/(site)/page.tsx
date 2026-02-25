@@ -5,35 +5,49 @@ import RecentBlog from "@/components/sections/RecentBlogs";
 import { GradientText } from "@/components/ui/shadcn-io/gradient-text";
 import Github from "@/components/sections/Github";
 import Button from "@/components/Button";
+import Navbar from "@/components/home/Navbar";
+import WorkExp from "@/components/sections/WorkExp";
+import { headers } from "next/headers";
+import { recordUniqueVisitor } from "@/lib/visitors";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const headerStore = await headers();
+  const uniqueVisitors = await recordUniqueVisitor(headerStore);
+
   return (
-    <div className="flex w-full">
-      <div className="hidden sm:block w-px bg-gray-200 inset-shadow" />
-
-      <div className="flex-1 w-full">
-        <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 w-full px-4 sm:px-8 md:px-12 lg:px-16">
-          <GradientText
-            text="Kshitij Akarsh"
-            gradient="linear-gradient(90deg, #fcd34d 0%, #f59e0b 50%, #f97316 100%)"
-            className="serif text-3xl sm:text-4xl text-center mt-10 mb-2 sm:mb-10"
-          />
-
-          <div className="hidden sm:flex justify-end">
-            <Button text="Download Resume" />
-          </div>
+    <div className="flex w-full bg-background min-h-screen text-foreground">
+      <div className="flex-1 w-full sm:border-x sm:border-border">
+        <div className="flex flex-col py-10 sm:flex-row justify-between sm:items-center gap-4 w-full px-0.5">
+          <Navbar />
         </div>
         <div className="flex justify-center">
           <div className="flex flex-col gap-6 w-full max-w-4xl">
             <CoverSection />
             <About />
+            <WorkExp />
             <Projects />
             <RecentBlog />
             <Github />
+            <section className="w-full px-4 sm:px-4 py-12">
+              <div className="flex gap-4 items-center justify-center">
+                <div className="flex flex-col items-center text-center gap-1">
+                  <p className="text-sm text-muted-foreground font-serif">
+                    Visitors : <span className="text-foreground font-bold">{uniqueVisitors}</span>
+                  </p>
+                  <p className="text-md text-muted-foreground font-serif pb-2">
+                    Thank you for visiting my corner of the web.
+                  </p>
+                  <p className="font-medium text-muted-foreground/60">
+                    Made with ❤️ by <span className="font-serif text-xl">Kshitij Akarsh</span>
+                  </p>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </div>
-      <div className="hidden sm:block w-px bg-gray-200 inset-shadow" />
     </div>
   );
 }
