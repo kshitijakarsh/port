@@ -68,8 +68,18 @@ async function recordUniqueVisitorInternal(headers: Headers): Promise<number> {
 
 export async function recordUniqueVisitor(headers: Headers): Promise<number> {
   try {
-    writeQueue = writeQueue.then(async () => recordUniqueVisitorInternal(headers)).catch(() => 0);
+    // Chain onto the current writeQueue to ensure sequential file access
+    writeQueue = writeQueue.then(async () => {
+      try {
+        return await recordUniqueVisitorInternal(headers);
+      } catch (err) {
+        console.error("Internal visitor tracking error:", err);
+        return 0;
+      }
+    });
+
     const result = await writeQueue;
+
     return typeof result === 'number' ? result : 0;
   } catch (error) {
     console.error("Visitor tracking failed:", error);
