@@ -3,10 +3,16 @@
 import { Download, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const router = useRouter();
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const changeTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
@@ -21,7 +27,7 @@ export default function Navbar() {
             className="font-sans text-xs bg-background p-1 rounded-sm shadow-sm border border-border/50"
             onClick={() => changeTheme()}
           >
-            {theme === "light" ? <Moon size={12} /> : <Sun size={12} />}
+            {mounted && (theme === "light" ? <Moon size={12} /> : <Sun size={12} />)}
           </button>
           <button className="font-sans text-xs text-muted-foreground hover:text-foreground transition-colors"
             onClick={() => {
