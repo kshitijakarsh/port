@@ -22,7 +22,7 @@ export const routes: readonly Route[] = [
   },
   {
     id: "designs",
-    path: "/designs",
+    path: "/design",
     icon: PencilRuler,
     label: "Designs",
   },

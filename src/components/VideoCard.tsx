@@ -10,7 +10,7 @@ export default function VideoCard({ videoSrc, videoType }: VideoCardProps) {
 
   return (
     <article
-      className={`w-full ${widthClass} flex flex-col`}
+      className="w-full flex flex-col"
     >
       <div className={`w-full ${aspectClass} overflow-hidden`}>
         <video

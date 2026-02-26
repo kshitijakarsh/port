@@ -31,7 +31,7 @@ export default function Navbar() {
           </button>
           <button className="font-sans text-xs text-muted-foreground hover:text-foreground transition-colors"
             onClick={() => {
-              router.push("/designs");
+              router.push("/design");
             }}>
             Designs
           </button>
