@@ -1,5 +1,5 @@
-import { Project } from "@/types";
-import ProjectCard from "./ProjectCard";
+import { Project } from '@/types';
+import ProjectCard from './ProjectCard';
 
 export default function Card(props: Project) {
   return (

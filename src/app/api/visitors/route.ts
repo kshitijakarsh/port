@@ -1,6 +1,6 @@
-import { NextResponse } from "next/server";
-import { headers } from "next/headers";
-import { recordUniqueVisitor } from "@/lib/visitors";
+import { NextResponse } from 'next/server';
+import { headers } from 'next/headers';
+import { recordUniqueVisitor } from '@/lib/visitors';
 
 export async function GET() {
   const headerStore = await headers();
@@ -8,4 +8,3 @@ export async function GET() {
 
   return NextResponse.json({ uniqueVisitors });
 }
-

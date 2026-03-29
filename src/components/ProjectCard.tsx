@@ -1,9 +1,9 @@
-import { Project } from "@/types";
-import Image from "next/image";
-import Button from "./Button";
-import { MoveUpRight } from "lucide-react";
-import { motion } from "motion/react";
-import MotionButton from "./MotionButton";
+import { Project } from '@/types';
+import Image from 'next/image';
+import Button from './Button';
+import { MoveUpRight } from 'lucide-react';
+import { motion } from 'motion/react';
+import MotionButton from './MotionButton';
 
 export default function ProjectCard(props: Project) {
   return (

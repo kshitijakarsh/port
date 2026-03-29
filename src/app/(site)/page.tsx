@@ -1,18 +1,17 @@
-import About from "@/components/sections/About";
-import { CoverSection } from "@/components/sections/Cover";
-import Projects from "@/components/sections/Projects";
-import RecentBlog from "@/components/sections/RecentBlogs";
-import { GradientText } from "@/components/ui/shadcn-io/gradient-text";
-import Github from "@/components/sections/Github";
-import Button from "@/components/Button";
-import Navbar from "@/components/home/Navbar";
-import WorkExp from "@/components/sections/WorkExp";
-import VisitorCounter from "@/components/VisitorCounter";
+import About from '@/components/sections/About';
+import { CoverSection } from '@/components/sections/Cover';
+import Projects from '@/components/sections/Projects';
+import RecentBlog from '@/components/sections/RecentBlogs';
+import { GradientText } from '@/components/ui/shadcn-io/gradient-text';
+import Github from '@/components/sections/Github';
+import Button from '@/components/Button';
+import Navbar from '@/components/home/Navbar';
+import WorkExp from '@/components/sections/WorkExp';
+import VisitorCounter from '@/components/VisitorCounter';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 export default async function Home() {
-
   return (
     <div className="flex w-full bg-background min-h-screen text-foreground">
       <div className="flex-1 w-full sm:border-x sm:border-border">
@@ -31,7 +30,10 @@ export default async function Home() {
               <div className="flex gap-4 items-center justify-center">
                 <div className="flex flex-col items-center text-center gap-1">
                   <p className="text-sm text-muted-foreground font-serif">
-                    Visitors : <span className="text-foreground font-bold"><VisitorCounter /></span>
+                    Visitors :{' '}
+                    <span className="text-foreground font-bold">
+                      <VisitorCounter />
+                    </span>
                   </p>
                   <p className="text-md text-muted-foreground font-serif pb-2">
                     Thank you for visiting my corner of the web.

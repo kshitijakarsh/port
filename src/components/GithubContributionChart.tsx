@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { ChartContainer, ChartTooltipContent } from "@/components/ui/chart";
+import { ChartContainer, ChartTooltipContent } from '@/components/ui/chart';
 
 import {
   LineChart,
@@ -10,7 +10,7 @@ import {
   CartesianGrid,
   ResponsiveContainer,
   Tooltip,
-} from "recharts";
+} from 'recharts';
 
 export interface ChartPoint {
   date: string;
@@ -21,17 +21,13 @@ export interface GithubContributionChartProps {
   data: ChartPoint[];
 }
 
-export function GithubContributionChart({
-  data,
-}: {
-  data: GithubContributionChartProps["data"];
-}) {
+export function GithubContributionChart({ data }: { data: GithubContributionChartProps['data'] }) {
   return (
     <ChartContainer
       config={{
         contributions: {
-          label: "Contributions",
-          color: "#FFBF00",
+          label: 'Contributions',
+          color: '#FFBF00',
         },
       }}
       className="
@@ -47,18 +43,10 @@ export function GithubContributionChart({
       "
     >
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart
-          data={data}
-          margin={{ left: 20, right: 20, top: 10, bottom: 10 }}
-        >
+        <LineChart data={data} margin={{ left: 20, right: 20, top: 10, bottom: 10 }}>
           <CartesianGrid strokeDasharray="3 3" />
 
-          <XAxis
-            dataKey="date"
-            tickLine={false}
-            axisLine={false}
-            minTickGap={20}
-          />
+          <XAxis dataKey="date" tickLine={false} axisLine={false} minTickGap={20} />
 
           <YAxis tickLine={false} axisLine={false} allowDecimals={false} />
 

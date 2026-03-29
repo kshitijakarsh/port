@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { Component, ErrorInfo, ReactNode } from "react";
+import React, { Component, ErrorInfo, ReactNode } from 'react';
 
 interface Props {
   children: ReactNode;
@@ -23,7 +23,7 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error("ErrorBoundary caught an error:", error, errorInfo);
+    console.error('ErrorBoundary caught an error:', error, errorInfo);
   }
 
   private handleReset = () => {
@@ -37,29 +37,18 @@ class ErrorBoundary extends Component<Props, State> {
       }
 
       return (
-        <div
-          className="flex flex-col items-center justify-center min-h-screen p-4 bg-background text-foreground"
-        >
-          <div
-            className="max-w-md w-full p-6 text-center bg-card rounded-3xl border border-border"
-          >
-            <h1 className="text-2xl font-semibold mb-4">
-              Oops! Something went wrong
-            </h1>
+        <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-background text-foreground">
+          <div className="max-w-md w-full p-6 text-center bg-card rounded-3xl border border-border">
+            <h1 className="text-2xl font-semibold mb-4">Oops! Something went wrong</h1>
             <p className="text-sm mb-6 text-muted-foreground">
-              We&apos;re sorry for the inconvenience. An unexpected error has
-              occurred.
+              We&apos;re sorry for the inconvenience. An unexpected error has occurred.
             </p>
-            {process.env.NODE_ENV === "development" && this.state.error && (
+            {process.env.NODE_ENV === 'development' && this.state.error && (
               <details className="mb-6 text-left">
-                <summary
-                  className="cursor-pointer text-sm font-medium mb-2 text-muted-foreground"
-                >
+                <summary className="cursor-pointer text-sm font-medium mb-2 text-muted-foreground">
                   Error details
                 </summary>
-                <pre
-                  className="text-xs p-4 overflow-auto bg-muted rounded-md text-muted-foreground"
-                >
+                <pre className="text-xs p-4 overflow-auto bg-muted rounded-md text-muted-foreground">
                   {this.state.error.toString()}
                 </pre>
               </details>

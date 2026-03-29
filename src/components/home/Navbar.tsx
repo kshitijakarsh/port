@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { Download, Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Download, Moon, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export default function Navbar() {
   const router = useRouter();
@@ -15,7 +15,7 @@ export default function Navbar() {
   }, []);
 
   const changeTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
   return (
@@ -27,26 +27,30 @@ export default function Navbar() {
             className="font-sans text-xs bg-background p-1 rounded-sm shadow-sm border border-border/50"
             onClick={() => changeTheme()}
           >
-            {mounted && (theme === "light" ? <Moon size={12} /> : <Sun size={12} />)}
+            {mounted && (theme === 'light' ? <Moon size={12} /> : <Sun size={12} />)}
           </button>
-          <button className="font-sans text-xs text-muted-foreground hover:text-foreground transition-colors"
+          <button
+            className="font-sans text-xs text-muted-foreground hover:text-foreground transition-colors"
             onClick={() => {
-              router.push("/projects");
-            }}>
+              router.push('/projects');
+            }}
+          >
             Projects
           </button>
-          <button className="font-sans text-xs text-muted-foreground hover:text-foreground transition-colors"
+          <button
+            className="font-sans text-xs text-muted-foreground hover:text-foreground transition-colors"
             onClick={() => {
-              router.push("/design");
-            }}>
+              router.push('/design');
+            }}
+          >
             Designs
           </button>
           <button
             className="flex gap-1 items-center justify-center font-sans text-xs text-muted-foreground hover:text-foreground transition-colors"
             onClick={() => {
-              const link = document.createElement("a");
-              link.href = "/Kshitij_Akarsh.pdf";
-              link.download = "Kshitij_Akarsh_Resume.pdf";
+              const link = document.createElement('a');
+              link.href = '/Kshitij_Akarsh.pdf';
+              link.download = 'Kshitij_Akarsh_Resume.pdf';
               link.click();
             }}
           >

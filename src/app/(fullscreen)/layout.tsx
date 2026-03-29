@@ -1,11 +1,3 @@
-export default function FullscreenLayout({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
-    return (
-        <div className="min-h-screen bg-background text-foreground">
-            {children}
-        </div>
-    );
+export default function FullscreenLayout({ children }: { children: React.ReactNode }) {
+  return <div className="min-h-screen bg-background text-foreground">{children}</div>;
 }

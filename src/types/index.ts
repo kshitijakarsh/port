@@ -1,4 +1,4 @@
-import { LucideIcon } from "lucide-react";
+import { LucideIcon } from 'lucide-react';
 
 /**
  * Technology stack item
@@ -35,7 +35,7 @@ export interface Design {
   title: string;
   description: string;
   toolsUsed: string[];
-  videoType: "mobile" | "web";
+  videoType: 'mobile' | 'web';
 }
 
 /**

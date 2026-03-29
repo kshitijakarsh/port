@@ -1,7 +1,7 @@
-import ProjectCard from "@/components/ProjectCard";
-import { getAllProjects } from "@/data/projects";
-import Button from "@/components/Button";
-import { MoveLeft } from "lucide-react";
+import ProjectCard from '@/components/ProjectCard';
+import { getAllProjects } from '@/data/projects';
+import Button from '@/components/Button';
+import { MoveLeft } from 'lucide-react';
 
 export default function ProjectsPage() {
   const projects = getAllProjects();
@@ -9,21 +9,17 @@ export default function ProjectsPage() {
   return (
     <div className="flex flex-col gap-8 py-8 animate-in fade-in slide-in-from-bottom-4 duration-1000 min-h-screen px-4">
       <div className="px-4">
-        <Button
-          variant="social"
-          href="/"
-          className="w-20 rounded-full"
-        >
+        <Button variant="social" href="/" className="w-20 rounded-full">
           <MoveLeft size={14} />
           Back
         </Button>
       </div>
 
-
       <div className="px-4">
         <h1 className="font-serif text-3xl mb-2">Projects</h1>
         <p className="text-muted-foreground text-sm max-w-xl">
-          A collection of projects I&apos;ve worked on, ranging from full-stack applications to AI-powered experiments and client work.
+          A collection of projects I&apos;ve worked on, ranging from full-stack applications to
+          AI-powered experiments and client work.
         </p>
       </div>
 

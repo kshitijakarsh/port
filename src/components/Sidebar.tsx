@@ -1,13 +1,9 @@
-"use client";
-import { useEffect, useRef, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
-import {
-  ICON_SIZE,
-  ICON_STROKE_WIDTH,
-  SIDEBAR_MOBILE_OFFSET,
-} from "@/constants";
-import { routes } from "@/data/routes";
-import { Download } from "lucide-react";
+'use client';
+import { useEffect, useRef, useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import { ICON_SIZE, ICON_STROKE_WIDTH, SIDEBAR_MOBILE_OFFSET } from '@/constants';
+import { routes } from '@/data/routes';
+import { Download } from 'lucide-react';
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -16,7 +12,7 @@ export default function Sidebar() {
   const [indicatorPos, setIndicatorPos] = useState<number>(0);
 
   const activeIndex = routes.findIndex((route) =>
-    route.path === "/" ? pathname === "/" : pathname.startsWith(route.path)
+    route.path === '/' ? pathname === '/' : pathname.startsWith(route.path)
   );
 
   useEffect(() => {
@@ -37,9 +33,9 @@ export default function Sidebar() {
         className="hidden md:flex sticky top-122 flex-col items-center py-4 bg-card text-card-foreground rounded-2xl min-w-14 border border-border"
         aria-label="Main navigation"
         style={{
-          boxShadow: "var(--shadow-sidebar)",
-          width: "var(--sidebar-width)",
-          height: "var(--sidebar-height)",
+          boxShadow: 'var(--shadow-sidebar)',
+          width: 'var(--sidebar-width)',
+          height: 'var(--sidebar-height)',
         }}
       >
         {activeIndex !== -1 && (
@@ -48,9 +44,9 @@ export default function Sidebar() {
             style={{
               top: `calc(${activeIndex} * var(--sidebar-icon-spacing) + var(--sidebar-base-offset))`,
               backgroundImage:
-                "linear-gradient(to bottom, var(--gradient-start), var(--gradient-end))",
-              transitionDuration: "var(--transition-duration)",
-              transitionTimingFunction: "var(--transition-timing)",
+                'linear-gradient(to bottom, var(--gradient-start), var(--gradient-end))',
+              transitionDuration: 'var(--transition-duration)',
+              transitionTimingFunction: 'var(--transition-timing)',
             }}
           />
         )}
@@ -63,13 +59,10 @@ export default function Sidebar() {
                 onClick={() => router.push(route.path)}
                 className="w-9 h-9 flex items-center justify-center transition hover:text-foreground"
                 style={{
-                  color:
-                    activeIndex === index
-                      ? "var(--text-primary)"
-                      : "var(--text-secondary)",
+                  color: activeIndex === index ? 'var(--text-primary)' : 'var(--text-secondary)',
                 }}
                 aria-label={route.label}
-                aria-current={activeIndex === index ? "page" : undefined}
+                aria-current={activeIndex === index ? 'page' : undefined}
                 title={route.label}
               >
                 <Icon
@@ -89,7 +82,7 @@ export default function Sidebar() {
       >
         <div
           className="flex items-center py-2 px-4 bg-card text-card-foreground rounded-3xl h-14 relative border border-border"
-          style={{ boxShadow: "var(--shadow-sidebar)" }}
+          style={{ boxShadow: 'var(--shadow-sidebar)' }}
         >
           {activeIndex !== -1 && (
             <div
@@ -97,10 +90,10 @@ export default function Sidebar() {
               style={{
                 left: `${indicatorPos}px`,
                 backgroundImage:
-                  "linear-gradient(to bottom, var(--gradient-start), var(--gradient-end))",
-                boxShadow: "var(--shadow-sidebar-indicator)",
-                transitionDuration: "var(--transition-duration)",
-                transitionTimingFunction: "var(--transition-timing)",
+                  'linear-gradient(to bottom, var(--gradient-start), var(--gradient-end))',
+                boxShadow: 'var(--shadow-sidebar-indicator)',
+                transitionDuration: 'var(--transition-duration)',
+                transitionTimingFunction: 'var(--transition-timing)',
               }}
             />
           )}
@@ -116,23 +109,17 @@ export default function Sidebar() {
                   onClick={() => router.push(route.path)}
                   className="w-9 h-9 flex items-center justify-center transition hover:text-foreground"
                   style={{
-                    color:
-                      activeIndex === index
-                        ? "var(--text-primary)"
-                        : "var(--text-secondary)",
+                    color: activeIndex === index ? 'var(--text-primary)' : 'var(--text-secondary)',
                   }}
                   aria-label={route.label}
-                  aria-current={activeIndex === index ? "page" : undefined}
+                  aria-current={activeIndex === index ? 'page' : undefined}
                   title={route.label}
                 >
                   <Icon size={ICON_SIZE} strokeWidth={ICON_STROKE_WIDTH} />
                 </button>
               );
             })}
-            <button
-              key="download-resume-button"
-              className="ml-4 opacity-60 scale-80"
-            >
+            <button key="download-resume-button" className="ml-4 opacity-60 scale-80">
               <a href="/Kshitij_Akarsh.pdf" download>
                 <Download />
               </a>

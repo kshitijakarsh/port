@@ -1,17 +1,15 @@
 type VideoCardProps = {
   videoSrc: string;
-  videoType: "mobile" | "web";
+  videoType: 'mobile' | 'web';
 };
 
 export default function VideoCard({ videoSrc, videoType }: VideoCardProps) {
-  const aspectClass = videoType === "mobile" ? "aspect-[9/16]" : "aspect-video";
+  const aspectClass = videoType === 'mobile' ? 'aspect-[9/16]' : 'aspect-video';
 
-  const widthClass = videoType === "mobile" ? "max-w-xs" : "max-w-3xl";
+  const widthClass = videoType === 'mobile' ? 'max-w-xs' : 'max-w-3xl';
 
   return (
-    <article
-      className="w-full flex flex-col"
-    >
+    <article className="w-full flex flex-col">
       <div className={`w-full ${aspectClass} overflow-hidden`}>
         <video
           className="block w-full h-full object-cover"

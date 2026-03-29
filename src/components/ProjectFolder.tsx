@@ -1,5 +1,5 @@
-"use client";
-import { motion } from "framer-motion";
+'use client';
+import { motion } from 'framer-motion';
 
 interface ProjectFolderProps {
   isOpen: boolean;
@@ -7,7 +7,7 @@ interface ProjectFolderProps {
   filesExited?: boolean;
 }
 
-export default function ProjectFolder({ isOpen, onClick}: ProjectFolderProps) {
+export default function ProjectFolder({ isOpen, onClick }: ProjectFolderProps) {
   return (
     <motion.button
       onClick={onClick}
@@ -22,8 +22,7 @@ export default function ProjectFolder({ isOpen, onClick}: ProjectFolderProps) {
           <div
             className="relative w-full h-full rounded-3xl shadow-2xl overflow-hidden"
             style={{
-              background:
-                "linear-gradient(to bottom, #ea580c 0%, #f97316 50%, #fb923c 100%)",
+              background: 'linear-gradient(to bottom, #ea580c 0%, #f97316 50%, #fb923c 100%)',
             }}
           >
             <motion.div
@@ -38,9 +37,9 @@ export default function ProjectFolder({ isOpen, onClick}: ProjectFolderProps) {
                 <div
                   className="absolute w-24 h-16 bg-card rounded-lg shadow-lg transform rotate-6"
                   style={{
-                    background: "linear-gradient(to bottom, var(--card), var(--muted))",
-                    top: "20%",
-                    left: "15%",
+                    background: 'linear-gradient(to bottom, var(--card), var(--muted))',
+                    top: '20%',
+                    left: '15%',
                   }}
                 >
                   <div className="p-2 space-y-1">
@@ -53,10 +52,10 @@ export default function ProjectFolder({ isOpen, onClick}: ProjectFolderProps) {
                 <div
                   className="absolute w-24 h-16 bg-card rounded-lg shadow-lg transform -rotate-3"
                   style={{
-                    background: "linear-gradient(to bottom, var(--card), var(--muted))",
-                    top: "30%",
-                    left: "50%",
-                    transform: "translateX(-50%) rotate(-3deg)",
+                    background: 'linear-gradient(to bottom, var(--card), var(--muted))',
+                    top: '30%',
+                    left: '50%',
+                    transform: 'translateX(-50%) rotate(-3deg)',
                   }}
                 >
                   <div className="p-2 space-y-1">
@@ -69,10 +68,9 @@ export default function ProjectFolder({ isOpen, onClick}: ProjectFolderProps) {
                 <motion.div
                   className="absolute w-24 h-16 bg-card rounded-lg shadow-xl"
                   style={{
-                    background:
-                      "linear-gradient(to bottom, var(--card), var(--secondary))",
-                    top: "40%",
-                    right: "15%",
+                    background: 'linear-gradient(to bottom, var(--card), var(--secondary))',
+                    top: '40%',
+                    right: '15%',
                   }}
                   animate={isOpen ? { rotate: 8, y: -5 } : { rotate: -4, y: 0 }}
                   transition={{ duration: 0.3 }}
@@ -90,21 +88,25 @@ export default function ProjectFolder({ isOpen, onClick}: ProjectFolderProps) {
             <motion.div
               className="absolute bottom-0 left-1/2 -translate-x-1/2 rounded-2xl origin-bottom"
               style={{
-                width: "100%",
-                background: "rgba(255, 255, 255, 0.15)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(10px)",
-                border: "1px solid rgba(255, 255, 255, 0.2)",
+                width: '100%',
+                background: 'rgba(255, 255, 255, 0.15)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
               }}
-              initial={{ height: "60%" }}
-              animate={isOpen ? { height: "60%" } : { height: "90%" }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
+              initial={{ height: '60%' }}
+              animate={isOpen ? { height: '60%' } : { height: '90%' }}
+              transition={{ duration: 0.4, ease: 'easeInOut' }}
             />
 
             {/* Text content */}
             <div className="absolute bottom-2 sm:bottom-3 md:bottom-4 left-2 sm:left-3 md:left-4 text-white z-10">
-              <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold serif">Projects</h3>
-              <p className="text-[8px] sm:text-[9px] md:text-[10px] opacity-90 mt-0.5">Proof of Work</p>
+              <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold serif">
+                Projects
+              </h3>
+              <p className="text-[8px] sm:text-[9px] md:text-[10px] opacity-90 mt-0.5">
+                Proof of Work
+              </p>
             </div>
           </div>
         </div>

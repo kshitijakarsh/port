@@ -1,30 +1,30 @@
-import { Home, Info, BookOpen, PencilRuler } from "lucide-react";
-import { Route } from "@/types";
+import { Home, Info, BookOpen, PencilRuler } from 'lucide-react';
+import { Route } from '@/types';
 
 export const routes: readonly Route[] = [
   {
-    id: "home",
-    path: "/",
+    id: 'home',
+    path: '/',
     icon: Home,
-    label: "Home",
+    label: 'Home',
   },
   {
-    id: "about",
-    path: "/about",
+    id: 'about',
+    path: '/about',
     icon: Info,
-    label: "About",
+    label: 'About',
   },
   {
-    id: "projects",
-    path: "/projects",
+    id: 'projects',
+    path: '/projects',
     icon: BookOpen,
-    label: "Projects",
+    label: 'Projects',
   },
   {
-    id: "designs",
-    path: "/design",
+    id: 'designs',
+    path: '/design',
     icon: PencilRuler,
-    label: "Designs",
+    label: 'Designs',
   },
 ] as const;
 

@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { GithubContributionChart } from "@/components/GithubContributionChart";
-import Button from "@/components/Button";
-import { GithubContributionMap } from "@/components/GithubContributionMap";
-import { type DateRange } from "react-day-picker";
-import { Calendar } from "@/components/ui/calendar";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { GithubContributionChart } from '@/components/GithubContributionChart';
+import Button from '@/components/Button';
+import { GithubContributionMap } from '@/components/GithubContributionMap';
+import { type DateRange } from 'react-day-picker';
+import { Calendar } from '@/components/ui/calendar';
 
 interface ContributionDay {
   contributionCount: number;
@@ -48,13 +48,13 @@ export default function Github() {
     to: today,
   });
   const [showcalendar, setShowcalendar] = useState(false);
-  const [visualMode, setVisualMode] = useState<"chart" | "heatmap">("heatmap");
+  const [visualMode, setVisualMode] = useState<'chart' | 'heatmap'>('heatmap');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.post(
-          "https://api.github.com/graphql",
+          'https://api.github.com/graphql',
           {
             query: `
               query($userName:String!) {
@@ -73,29 +73,27 @@ export default function Github() {
                 }
               }
             `,
-            variables: { userName: "kshitijakarsh" },
+            variables: { userName: 'kshitijakarsh' },
           },
           {
             headers: {
               Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
             },
-          },
+          }
         );
 
-        const calendar =
-          response.data.data.user.contributionsCollection.contributionCalendar;
+        const calendar = response.data.data.user.contributionsCollection.contributionCalendar;
 
-        const flat = calendar.weeks.flatMap(
-          (week: { contributionDays: ContributionDay[] }) =>
-            week.contributionDays.map((day) => ({
-              date: day.date,
-              contributions: day.contributionCount,
-            })),
+        const flat = calendar.weeks.flatMap((week: { contributionDays: ContributionDay[] }) =>
+          week.contributionDays.map((day) => ({
+            date: day.date,
+            contributions: day.contributionCount,
+          }))
         );
 
         setChartData(flat);
       } catch (error) {
-        console.error("Error fetching GitHub data", error);
+        console.error('Error fetching GitHub data', error);
       }
     };
 
@@ -116,26 +114,26 @@ export default function Github() {
         </h1>
 
         <div className="flex items-center gap-1 rounded-md mx-auto sm:mx-0">
-          <div onClick={() => setVisualMode("heatmap")}>
+          <div onClick={() => setVisualMode('heatmap')}>
             <Button variant="social" text="Heatmap" />
           </div>
 
           <div className="self-stretch w-px bg-muted mx-1" />
 
-          <div onClick={() => setVisualMode("chart")}>
+          <div onClick={() => setVisualMode('chart')}>
             <Button variant="social" text="Chart" />
           </div>
         </div>
       </div>
 
       <div className="flex justify-center w-full pb-10">
-        {visualMode === "chart" ? (
+        {visualMode === 'chart' ? (
           <div className="relative w-full max-w-3xl mt-4">
             <div
               onClick={() => setShowcalendar((prev) => !prev)}
               className="flex justify-end mb-2 z-30 relative"
             >
-              <Button text={showcalendar ? "Hide Calendar" : "Show Calendar"} />
+              <Button text={showcalendar ? 'Hide Calendar' : 'Show Calendar'} />
             </div>
 
             {showcalendar && (
@@ -152,10 +150,7 @@ export default function Github() {
                 </div>
               </div>
             )}
-            <div
-              className={`${showcalendar ? "opacity-30 pointer-events-none" : ""
-                }`}
-            >
+            <div className={`${showcalendar ? 'opacity-30 pointer-events-none' : ''}`}>
               <GithubContributionChart data={filteredData} />
             </div>
           </div>

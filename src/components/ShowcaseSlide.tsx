@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { motion, useTransform, MotionValue } from "framer-motion";
-import VideoCard from "@/components/VideoCard";
+import { motion, useTransform, MotionValue } from 'framer-motion';
+import VideoCard from '@/components/VideoCard';
 
 type ShowcaseSlideProps = {
   index: number;
@@ -10,25 +10,16 @@ type ShowcaseSlideProps = {
   video: {
     id: string;
     videoSrc: string;
-    videoType: "mobile" | "web";
+    videoType: 'mobile' | 'web';
     title: string;
     description: string;
   };
 };
 
-export function ShowcaseSlide({
-  index,
-  x,
-  viewportWidth,
-  video,
-}: ShowcaseSlideProps) {
+export function ShowcaseSlide({ index, x, viewportWidth, video }: ShowcaseSlideProps) {
   const scale = useTransform(
     x,
-    [
-      -viewportWidth * (index + 1),
-      -viewportWidth * index,
-      -viewportWidth * (index - 1),
-    ],
+    [-viewportWidth * (index + 1), -viewportWidth * index, -viewportWidth * (index - 1)],
     [0.94, 1, 0.94]
   );
 
@@ -37,7 +28,7 @@ export function ShowcaseSlide({
       style={{ scale }}
       className="w-screen shrink-0 flex justify-center mt-20 gap-8 px-4 sm:px-8"
       transition={{
-        scale: { duration: 0.35, ease: "easeOut" },
+        scale: { duration: 0.35, ease: 'easeOut' },
       }}
     >
       <VideoCard videoSrc={video.videoSrc} videoType={video.videoType} />

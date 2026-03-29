@@ -1,6 +1,6 @@
-import ProjectCard from "@/components/ProjectCard";
-import { getHomepageProjects } from "@/data/projects";
-import Button from "@/components/Button";
+import ProjectCard from '@/components/ProjectCard';
+import { getHomepageProjects } from '@/data/projects';
+import Button from '@/components/Button';
 
 export default function Projects() {
   const projects = getHomepageProjects();
@@ -28,7 +28,9 @@ export default function Projects() {
         ))}
       </div>
       <div className="w-full flex justify-center px-2 pt-4">
-        <Button variant="social" href="/projects">See More</Button>
+        <Button variant="social" href="/projects">
+          See More
+        </Button>
       </div>
     </section>
   );
