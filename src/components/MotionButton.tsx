@@ -2,13 +2,23 @@
 
 import { MoveUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useRouter } from 'next/navigation';
 
-export default function MotionButton() {
+interface MotionButtonProps {
+  redirectionLink: string;
+}
+
+export default function MotionButton({redirectionLink,
+}: MotionButtonProps) {
+  const router = useRouter();
   return (
     <motion.button
       whileHover="hover"
       whileTap="tap"
       className="group bg-muted text-muted-foreground hover:text-foreground outline-border flex items-center justify-center gap-2 rounded-sm px-2 py-1 font-sans text-xs outline-1 outline-offset-2 transition-colors"
+      onClick={()=>{
+        router.push(redirectionLink);
+      }}
     >
       <motion.div
         variants={{
@@ -19,6 +29,8 @@ export default function MotionButton() {
       >
         <MoveUpRight size={10} />
       </motion.div>
+
+      
     </motion.button>
   );
 }

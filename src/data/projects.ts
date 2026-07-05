@@ -56,18 +56,30 @@ export const projects: readonly Project[] = [
     field: 'Web Dev',
     type: 'Client Work',
   },
+  {
+    id: '4',
+    image: '/kharch.png',
+    title: 'Kharch - The Bot',
+    description: 'Telegram based personal expense monitoring webapp / bot.',
+    techUsed: [
+      { id: 'kharch-tech-1', stack: 'NextJs' },
+      { id: 'kharch-tech-2', stack: 'Tailwind CSS' },
+      { id: 'kharch-tech-3', stack: 'Grammy' },
+    ],
+    githubUrl: 'https://github.com/kshitijakarsh/kharch',
+    liveUrl: 'https://kharch-two.vercel.app/login',
+    backgroundColor: '#B3DBF4',
+    year: '2026',
+    field: 'Web Dev',
+    type: 'Project',
+  },
 ] as const;
 
-/**
- * Get projects for homepage (limited subset)
- */
+
 export const getHomepageProjects = (): readonly Project[] => {
   return projects.slice(0, 2);
 };
 
-/**
- * Get all projects
- */
 export const getAllProjects = (): readonly Project[] => {
   return projects;
 };

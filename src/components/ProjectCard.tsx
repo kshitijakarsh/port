@@ -1,8 +1,5 @@
 import { Project } from '@/types';
 import Image from 'next/image';
-import Button from './Button';
-import { MoveUpRight } from 'lucide-react';
-import { motion } from 'motion/react';
 import MotionButton from './MotionButton';
 
 export default function ProjectCard(props: Project) {
@@ -29,7 +26,7 @@ export default function ProjectCard(props: Project) {
               <MoveUpRight size={10} />
             </Button> */}
 
-            <MotionButton />
+            <MotionButton redirectionLink={`/projects/${props.id}`} />
           </div>
           <p className="text-muted-foreground line-clamp-2 text-sm leading-relaxed">
             {props.description}
