@@ -7,7 +7,6 @@ import Github from '@/components/sections/Github';
 import Button from '@/components/Button';
 import Navbar from '@/components/home/Navbar';
 import WorkExp from '@/components/sections/WorkExp';
-import VisitorCounter from '@/components/VisitorCounter';
 
 export const dynamic = 'force-dynamic';
 
@@ -26,24 +25,6 @@ export default async function Home() {
             <Projects />
             <RecentBlog />
             <Github />
-            <section className="w-full px-4 sm:px-4 py-12">
-              <div className="flex gap-4 items-center justify-center">
-                <div className="flex flex-col items-center text-center gap-1">
-                  <p className="text-sm text-muted-foreground font-serif">
-                    Visitors :{' '}
-                    <span className="text-foreground font-bold">
-                      <VisitorCounter />
-                    </span>
-                  </p>
-                  <p className="text-md text-muted-foreground font-serif pb-2">
-                    Thank you for visiting my corner of the web.
-                  </p>
-                  <p className="font-medium text-muted-foreground/60">
-                    Made with ❤️ by <span className="font-serif text-xl">Kshitij Akarsh</span>
-                  </p>
-                </div>
-              </div>
-            </section>
           </div>
         </div>
       </div>
