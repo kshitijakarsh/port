@@ -19,7 +19,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="relative w-full px-2 sm:px-4 md:px-4 lg:px-4 py-2 border border-border outline-1 outline-border outline-offset-2 rounded-sm">
+    <nav className="relative w-full px-2 sm:px-4 md:px-4 lg:px-4 py-2 border-t border-b border-0">
       <div className="flex justify-between items-center">
         <h1 className="text-sm sm:text-3xl text-foreground font-serif">Kshitij Akarsh</h1>
         <div className="bg-muted flex gap-4 px-2 py-1 rounded-sm outline-1 outline-border outline-offset-2 items-center">

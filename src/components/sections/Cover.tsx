@@ -18,7 +18,7 @@ export const CoverSection = () => {
         priority
       />
 
-      <div className="absolute -bottom-16 left-6 sm:left-10 h-32 w-32 rounded-2xl border-4 border-muted shadow-xl overflow-hidden bg-muted">
+      <div className="absolute -bottom-17 sm:-bottom-8 left-6 sm:left-10 h-32 w-32 rounded-2xl border-4 border-muted shadow-xl overflow-hidden bg-muted -translate-y-7 sm:translate-y-0">
         <Image
           src="https://cdn.jsdelivr.net/gh/kshitijakarsh/port@assets/public/profile_light.jpg"
           alt="profile picture"

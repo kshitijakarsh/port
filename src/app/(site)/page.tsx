@@ -13,7 +13,7 @@ export const dynamic = 'force-dynamic';
 export default async function Home() {
   return (
     <div className="flex w-full bg-background min-h-screen text-foreground">
-      <div className="flex-1 w-full sm:border-x sm:border-border">
+      <div className="flex-1 w-full">
         <div className="flex flex-col py-10 sm:flex-row justify-between sm:items-center gap-4 w-full px-0.5">
           <Navbar />
         </div>

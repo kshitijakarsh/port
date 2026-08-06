@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Instrument_Serif, Manrope, Fragment_Mono } from 'next/font/google';
+// @ts-ignore: side-effect CSS import declaration handled by Next.js
 import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import { ThemeProvider } from 'next-themes';

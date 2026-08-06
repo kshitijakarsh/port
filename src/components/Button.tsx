@@ -28,10 +28,10 @@ export default function Button({
   const key = label.toLowerCase();
 
   const socialStyles =
-    'flex justify-center items-center gap-2 font-sans text-xs bg-muted text-muted-foreground hover:text-foreground transition-colors px-2 py-1 rounded-sm outline-1 outline-border outline-offset-2';
+    'flex justify-center items-center gap-2 font-sans text-xs bg-muted hover:bg-muted-hover text-muted-foreground hover:text-foreground transition-colors px-2 py-1 rounded-sm outline-1 outline-border outline-offset-2';
 
   const defaultStyles =
-    'inline text-xs px-2 py-1 shadow-[inset_0_-2px_4px_rgba(255,165,0,0.5)] rounded-md serif tracking-wide hover:shadow-[inset_0_0px_4px_rgba(255,165,0,0.5)]';
+    'inline text-xs px-2 py-1 shadow-[inset_0_-2px_4px_rgba(255,165,0,0.5)] hover:bg-muted-hover rounded-md serif tracking-wide hover:shadow-[inset_0_0px_4px_rgba(255,165,0,0.5)]';
 
   const variantStyles = variant === 'social' ? socialStyles : defaultStyles;
   const computedStyles = customStyles[key] || '';
